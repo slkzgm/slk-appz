@@ -2,6 +2,9 @@ import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../styles/Layout.module.css';
 import Link from 'next/link';
+import {Divider} from "@mui/material";
+import GitHubIcon from '@mui/icons-material/github'
+import TwitterIcon from '@mui/icons-material/twitter'
 
 const name = 'SlKzᵍᵐ';
 export const siteTitle = 'SlKAppz';
@@ -68,16 +71,25 @@ export default function Layout({ children, home }) {
           </Link>
         </div>
       )}
-
-      <footer className={styles.footer}>
-        <a
-          href="http://localhost:3001/mnlth"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Built by SlKzᵍᵐ
-        </a>
-      </footer>
+      <Divider>
+        <Link href={"https://www.twitter.com/lstehaye"}>
+          <a target={"_blank"}>
+            <TwitterIcon/>
+          </a>
+        </Link>
+        <Link href={"https://github.com/slkzgm"}>
+          <a target={"_blank"}>
+            <GitHubIcon/>
+          </a>
+        </Link>
+      </Divider>
+      <a className={styles.footer}
+         href="https://www.twitter.com/lstehaye"
+         target="_blank"
+         rel="noopener noreferrer"
+      >
+        Built by SlKzᵍᵐ
+      </a>
     </div>
   );
 }
