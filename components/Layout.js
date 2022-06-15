@@ -3,8 +3,8 @@ import Image from 'next/image';
 import styles from '../styles/Layout.module.css';
 import Link from 'next/link';
 import {Divider} from "@mui/material";
-import GitHubIcon from '@mui/icons-material/github'
-import TwitterIcon from '@mui/icons-material/twitter'
+import TwitterIcon from '@mui/icons-material/Twitter'
+import GitHubIcon from '@mui/icons-material/GitHub'
 
 const name = 'SlKzᵍᵐ';
 export const siteTitle = 'SlKAppz';

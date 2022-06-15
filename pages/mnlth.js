@@ -29,22 +29,22 @@ export default function Mnlth( { data }) {
   };
 
   return (
-    <Layout>
-      <section>
-        <Button onClick={() => handleClick('diff')}>diff!</Button>
-        <Button onClick={() => handleClick('dunk')}>dunk!</Button>
-        <Button onClick={() => handleClick('floor')}>floor!</Button>
-        <Button onClick={() => handleClick('left')}>left!</Button>
-        <Button onClick={() => handleClick('opening')}>opening!</Button>
-        <Button onClick={() => handleClick('revealed')}>revealed!</Button>
-        <Button onClick={() => handleClick('skinvials')}>skinVials!</Button>
-        <Button onClick={() => handleClick('target')}>target!</Button>
-      </section>
-      <MnlthTable data={stateData} />
-      {
-        stateCommand === 'opening' ?
-          <div>Max value loss: {stateData[9].maxLoss} ETH. ({stateData[9].maxLossPercent}%)</div> : ''
-      }
-    </Layout>
+      <Layout>
+        <section>
+          <Button onClick={() => handleClick('diff')}>diff!</Button>
+          <Button onClick={() => handleClick('dunk')}>dunk!</Button>
+          <Button onClick={() => handleClick('floor')}>floor!</Button>
+          <Button onClick={() => handleClick('left')}>left!</Button>
+          <Button onClick={() => handleClick('opening')}>opening!</Button>
+          <Button onClick={() => handleClick('revealed')}>revealed!</Button>
+          <Button onClick={() => handleClick('skinvials')}>skinVials!</Button>
+          <Button onClick={() => handleClick('target')}>target!</Button>
+        </section>
+        <MnlthTable data={stateData} />
+        {
+          stateCommand === 'opening' ?
+            <div>Max value loss: {stateData[9].maxLoss} ETH. ({stateData[9].maxLossPercent}%)</div> : ''
+        }
+      </Layout>
   );
 }
