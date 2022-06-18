@@ -11,8 +11,3 @@ resources:
   disk_size_gb: 30
 readiness_check:
   app_start_timeout_sec: 1800
-handlers:
-  - url: /.*
-    script: auto
-    secure: always
-    redirect_http_response_code: 301
