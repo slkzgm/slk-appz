@@ -19,7 +19,14 @@ export default function Home() {
         <Link href={"/mnlth"}>
           <a>
             <Typography variant={"h6"} textAlign={"center"} className={styles.typoLink}>
-              Browse mnlth live datas
+              Browse mnlth live data from this app
+            </Typography>
+          </a>
+        </Link>
+        <Link href={"/api/mnlth/floor"}>
+          <a>
+            <Typography variant={"h6"} textAlign={"center"} className={styles.typoLink}>
+              Retrieve mnlth live data from the API
             </Typography>
           </a>
         </Link>
