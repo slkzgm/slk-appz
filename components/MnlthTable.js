@@ -1,4 +1,12 @@
-import {Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from "@mui/material";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Typography
+} from "@mui/material";
 
 export default function MnlthTable({ data }) {
   const headers = Object.keys(data[0]);
@@ -21,7 +29,11 @@ export default function MnlthTable({ data }) {
               <TableRow key={index}>
                 {
                   headers.map((field, findex) => (
-                    <TableCell key={findex}>{item[field]}</TableCell>
+                    <TableCell key={findex}>
+                    <Typography noWrap>
+                      {item[field]}
+                    </Typography>
+                    </TableCell>
                   ))
                 }
               </TableRow>

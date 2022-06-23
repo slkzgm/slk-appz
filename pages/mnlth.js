@@ -3,6 +3,7 @@ import {requestMnlthAPI} from "../lib/mnlth";
 import MnlthTable from "../components/MnlthTable";
 import {Button} from "@mui/material";
 import Layout from "../components/Layout";
+import style from "../styles/mnlth.module.css";
 
 export async function getServerSideProps(context) {
   const data = await requestMnlthAPI('floor');
@@ -30,16 +31,16 @@ export default function Mnlth( { data }) {
 
   return (
       <Layout>
-        <section>
-          <Button onClick={() => handleClick('diff')}>diff!</Button>
-          <Button onClick={() => handleClick('dunk')}>dunk!</Button>
-          <Button onClick={() => handleClick('floor')}>floor!</Button>
-          <Button onClick={() => handleClick('left')}>left!</Button>
-          <Button onClick={() => handleClick('opening')}>opening!</Button>
-          <Button onClick={() => handleClick('revealed')}>revealed!</Button>
-          <Button onClick={() => handleClick('skinvials')}>skinVials!</Button>
-          <Button onClick={() => handleClick('target')}>target!</Button>
-        </section>
+        <div style={{textAlign:'center'}}>
+          <Button className={style.button} size={'small'} variant={"contained"}  onClick={() => handleClick('diff')}>diff!</Button>
+          <Button className={style.button} size={'small'} variant={"contained"}  onClick={() => handleClick('dunk')}>dunk!</Button>
+          <Button className={style.button} size={'small'} variant={"contained"}  onClick={() => handleClick('floor')}>floor!</Button>
+          <Button className={style.button} size={'small'} variant={"contained"}  onClick={() => handleClick('left')}>left!</Button>
+          <Button className={style.button} size={'small'} variant={"contained"}  onClick={() => handleClick('opening')}>opening!</Button>
+          <Button className={style.button} size={'small'} variant={"contained"}  onClick={() => handleClick('revealed')}>revealed!</Button>
+          <Button className={style.button} size={'small'} variant={"contained"}  onClick={() => handleClick('skinvials')}>skinVials!</Button>
+          <Button className={style.button} size={'small'} variant={"contained"}  onClick={() => handleClick('target')}>target!</Button>
+        </div>
         <MnlthTable data={stateData} />
         {
           stateCommand === 'opening' ?
