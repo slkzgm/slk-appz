@@ -40,7 +40,7 @@ export default function Home() {
           </Link>
         </Button>
         <Button variant={'contained'} color={'secondary'} className={styles.button} startIcon={<DiscordIcon/>}>
-          <a href={"https://t.co/I9w1OgT6d5"} target={'_blank'}>
+          <a href={"https://t.co/I9w1OgT6d5"} target={'_blank'} rel="noopener noreferrer">
             <Typography variant={'button'} fontWeight={'bold'}>
               Add the bot to your discord server
             </Typography>
