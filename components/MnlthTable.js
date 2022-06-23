@@ -18,7 +18,7 @@ export default function MnlthTable({ data }) {
           <TableRow>
             {headers.map((elem, index) => (
               <TableCell key={index}>
-                {elem}
+                <Typography color={'primary'} fontWeight={'bold'} fontFamily={'monospace'} variant={'body2'} textTransform={'uppercase'}>{elem}</Typography>
               </TableCell>
             ))}
           </TableRow>

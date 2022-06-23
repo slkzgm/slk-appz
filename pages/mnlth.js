@@ -3,7 +3,11 @@ import {requestMnlthAPI} from "../lib/mnlth";
 import MnlthTable from "../components/MnlthTable";
 import {Button} from "@mui/material";
 import Layout from "../components/Layout";
-import style from "../styles/mnlth.module.css";
+import {styled} from "@mui/material/styles";
+
+const CommandButton = styled(Button)({
+  margin: '.25rem'
+});
 
 export async function getServerSideProps(context) {
   const data = await requestMnlthAPI('floor');
@@ -32,14 +36,14 @@ export default function Mnlth( { data }) {
   return (
       <Layout>
         <div style={{textAlign:'center'}}>
-          <Button className={style.button} size={'small'} variant={"contained"}  onClick={() => handleClick('diff')}>diff!</Button>
-          <Button className={style.button} size={'small'} variant={"contained"}  onClick={() => handleClick('dunk')}>dunk!</Button>
-          <Button className={style.button} size={'small'} variant={"contained"}  onClick={() => handleClick('floor')}>floor!</Button>
-          <Button className={style.button} size={'small'} variant={"contained"}  onClick={() => handleClick('left')}>left!</Button>
-          <Button className={style.button} size={'small'} variant={"contained"}  onClick={() => handleClick('opening')}>opening!</Button>
-          <Button className={style.button} size={'small'} variant={"contained"}  onClick={() => handleClick('revealed')}>revealed!</Button>
-          <Button className={style.button} size={'small'} variant={"contained"}  onClick={() => handleClick('skinvials')}>skinVials!</Button>
-          <Button className={style.button} size={'small'} variant={"contained"}  onClick={() => handleClick('target')}>target!</Button>
+          <CommandButton size={'small'} variant={"contained"}  onClick={() => handleClick('diff')}>diff!</CommandButton>
+          <CommandButton size={'small'} variant={"contained"}  onClick={() => handleClick('dunk')}>dunk!</CommandButton>
+          <CommandButton size={'small'} variant={"contained"}  onClick={() => handleClick('floor')}>floor!</CommandButton>
+          <CommandButton size={'small'} variant={"contained"}  onClick={() => handleClick('left')}>left!</CommandButton>
+          <CommandButton size={'small'} variant={"contained"}  onClick={() => handleClick('opening')}>opening!</CommandButton>
+          <CommandButton size={'small'} variant={"contained"}  onClick={() => handleClick('revealed')}>revealed!</CommandButton>
+          <CommandButton size={'small'} variant={"contained"}  onClick={() => handleClick('skinvials')}>skinVials!</CommandButton>
+          <CommandButton size={'small'} variant={"contained"}  onClick={() => handleClick('target')}>target!</CommandButton>
         </div>
         <MnlthTable data={stateData} />
         {
