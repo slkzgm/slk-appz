@@ -1,7 +1,7 @@
+import styles from "../styles/home.module.css";
 import {Button, Divider, SvgIcon, Typography} from "@mui/material";
 import Link from "next/link";
 import Layout from "../components/Layout";
-import styles from "../styles/home.module.css";
 
 function DiscordIcon(props) {
   return (
