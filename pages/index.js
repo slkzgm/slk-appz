@@ -1,7 +1,7 @@
-import styles from "../styles/home.module.css";
-import {Button, Divider, SvgIcon, Typography} from "@mui/material";
+import {Box, Button, Divider, SvgIcon, Typography} from "@mui/material";
 import Link from "next/link";
 import Layout from "../components/Layout";
+import {styled} from "@mui/material/styles";
 
 function DiscordIcon(props) {
   return (
@@ -11,6 +11,14 @@ function DiscordIcon(props) {
   );
 }
 
+const LinkButton = styled(Button)({
+  margin: '.25rem'
+});
+
+const AppBox = styled(Box)({
+  margin: '.5rem',
+  textAlign: 'center'
+});
 
 export default function Home() {
   return (
@@ -24,29 +32,29 @@ export default function Home() {
         </Typography>
       </section>
       <Divider variant={"middle"}>MNLTH LIVE</Divider>
-      <section className={styles.section}>
-        <Button variant={'contained'} className={styles.button}>
+      <AppBox>
+        <LinkButton variant={'contained'}>
           <Link href={'/mnlth'}>
             <Typography variant={'button'} fontWeight={'bold'}>
               Browse mnlth live data
             </Typography>
           </Link>
-        </Button>
-        <Button variant={'contained'} className={styles.button}>
+        </LinkButton>
+        <Button variant={'contained'}>
           <Link href={"/api/mnlth/all"}>
             <Typography variant={'button'} fontWeight={'bold'}>
               Retrieve data from API
             </Typography>
           </Link>
         </Button>
-        <Button variant={'contained'} color={'secondary'} className={styles.button} startIcon={<DiscordIcon/>}>
+        <LinkButton variant={'contained'} color={'secondary'} startIcon={<DiscordIcon/>}>
           <a href={"https://t.co/I9w1OgT6d5"} target={'_blank'} rel="noopener noreferrer">
             <Typography variant={'button'} fontWeight={'bold'}>
               Add the bot to your discord server
             </Typography>
           </a>
-        </Button>
-      </section>
+        </LinkButton>
+      </AppBox>
       {/*<Divider variant={"middle"}>My Threads</Divider>*/}
     </Layout>
   )
