@@ -7,6 +7,7 @@ import {
   TableRow,
   Typography
 } from "@mui/material";
+import {roundToTwo} from "../lib/utils";
 
 export default function MnlthTable({ data }) {
   const headers = Object.keys(data[0]);
@@ -18,7 +19,11 @@ export default function MnlthTable({ data }) {
           <TableRow>
             {headers.map((elem, index) => (
               <TableCell key={index}>
-                <Typography color={'primary'} fontWeight={'bold'} fontFamily={'monospace'} variant={'body2'} textTransform={'uppercase'}>{elem}</Typography>
+                <Typography
+                  textAlign={'center'} color={'primary'} fontWeight={'bold'}
+                  fontFamily={'monospace'} variant={'body2'} textTransform={'uppercase'}>
+                  {elem}
+                </Typography>
               </TableCell>
             ))}
           </TableRow>
@@ -29,10 +34,10 @@ export default function MnlthTable({ data }) {
               <TableRow key={index}>
                 {
                   headers.map((field, findex) => (
-                    <TableCell key={findex}>
-                    <Typography noWrap>
-                      {item[field]}
-                    </Typography>
+                    <TableCell key={findex} sx={{textAlign: 'center'}}>
+                      <Typography variant={'body3'} textTransform={'uppercase'}>
+                        {typeof(item[field]) === 'number' ? roundToTwo(item[field]) : item[field]}
+                      </Typography>
                     </TableCell>
                   ))
                 }

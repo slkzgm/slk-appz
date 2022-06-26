@@ -1,13 +1,10 @@
 import React from 'react';
 import {requestMnlthAPI} from "../lib/mnlth";
 import MnlthTable from "../components/MnlthTable";
-import {Button} from "@mui/material";
 import Layout from "../components/Layout";
-import {styled} from "@mui/material/styles";
-
-const CommandButton = styled(Button)({
-  margin: '.25rem'
-});
+import MnlthButton from "../components/MnlthButton";
+import {Typography} from "@mui/material";
+import {roundToTwo} from "../lib/utils";
 
 export async function getServerSideProps(context) {
   const data = await requestMnlthAPI('floor');
@@ -19,7 +16,7 @@ export async function getServerSideProps(context) {
   };
 }
 
-export default function Mnlth( { data }) {
+export default function Mnlth({ data }) {
   const [stateCommand, setCommand] = React.useState('floor');
   const [stateData, setData] = React.useState(data);
   const handleClick = async (command) => {
@@ -34,22 +31,13 @@ export default function Mnlth( { data }) {
   };
 
   return (
-      <Layout>
-        <div style={{textAlign:'center'}}>
-          <CommandButton size={'small'} variant={"contained"}  onClick={() => handleClick('diff')}>diff!</CommandButton>
-          <CommandButton size={'small'} variant={"contained"}  onClick={() => handleClick('dunk')}>dunk!</CommandButton>
-          <CommandButton size={'small'} variant={"contained"}  onClick={() => handleClick('floor')}>floor!</CommandButton>
-          <CommandButton size={'small'} variant={"contained"}  onClick={() => handleClick('left')}>left!</CommandButton>
-          <CommandButton size={'small'} variant={"contained"}  onClick={() => handleClick('opening')}>opening!</CommandButton>
-          <CommandButton size={'small'} variant={"contained"}  onClick={() => handleClick('revealed')}>revealed!</CommandButton>
-          <CommandButton size={'small'} variant={"contained"}  onClick={() => handleClick('skinvials')}>skinVials!</CommandButton>
-          <CommandButton size={'small'} variant={"contained"}  onClick={() => handleClick('target')}>target!</CommandButton>
-        </div>
-        <MnlthTable data={stateData} />
-        {
-          stateCommand === 'opening' ?
-            <div>Max value loss: {stateData[9].maxLoss} ETH. ({stateData[9].maxLossPercent}%)</div> : ''
-        }
-      </Layout>
+    <Layout>
+      <MnlthButton activeCommand={stateCommand} handleClick={handleClick}/>
+      <MnlthTable data={stateData} />
+      {
+        stateCommand === 'opening' ?
+          <Typography sx={{margin: '.5rem', textAlign: 'center'}}>Max value loss: {roundToTwo(stateData[9].maxLoss)} ETH. (-{roundToTwo(stateData[9].maxLossPercent)}%)</Typography> : ''
+      }
+    </Layout>
   );
 }
