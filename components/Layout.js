@@ -2,47 +2,55 @@ import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../styles/Layout.module.css';
 import Link from 'next/link';
-import {createTheme, Divider, ThemeProvider} from "@mui/material";
+import {
+  createTheme,
+  CssBaseline,
+  Divider,
+  ThemeProvider,
+  useMediaQuery
+} from "@mui/material";
 import TwitterIcon from '@mui/icons-material/Twitter';
 import GitHubIcon from '@mui/icons-material/GitHub';
 
 const name = 'SlKzᵍᵐ';
 export const siteTitle = 'SlKAppz';
 
-const theme = createTheme({
-  palette: {
-    type: 'light',
-    primary: {
-      main: '#3f51b5',
-    },
-    secondary: {
-      main: '#b9cc0f',
-    },
-    error: {
-      main: '#cc220f',
-    },
-  },
-  typography: {
-    fontSize: 15,
-    h5: {
-      lineHeight: 1.25,
-      letterSpacing: '-0.05em',
-      fontWeight: 600,
-      fontFamily: 'monospace',
-      textTransform: 'uppercase',
-      color: '#3f51b5',
-    },
-    h6: {
-      lineHeight: 1.2,
-      fontWeight: 600,
-      letterSpacing: '0em',
-    },
-  },
-});
-
 export default function Layout({ children, home }) {
+  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
+  const theme = createTheme({
+    palette: {
+      mode: prefersDarkMode ? 'dark' : 'light',
+      primary: {
+        main: '#3f51b5',
+      },
+      secondary: {
+        main: '#b9cc0f',
+      },
+      error: {
+        main: '#cc220f',
+      },
+    },
+    typography: {
+      fontSize: 15,
+      h5: {
+        lineHeight: 1.25,
+        letterSpacing: '-0.05em',
+        fontWeight: 600,
+        fontFamily: 'monospace',
+        textTransform: 'uppercase',
+        color: '#3f51b5',
+      },
+      h6: {
+        lineHeight: 1.2,
+        fontWeight: 600,
+        letterSpacing: '0em',
+      },
+    },
+  });
+
   return (
     <ThemeProvider theme={theme}>
+      <CssBaseline/>
       <div className={styles.container}>
         <Head>
           <link rel="icon" href="/favicon.ico" />
