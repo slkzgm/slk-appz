@@ -21,8 +21,9 @@ export default function MnlthButton({ activeCommand, handleClick}) {
       sx={{
         textAlign:'center'}}
     >
-      {commandList.map(command =>
+      {commandList.map((command, index) =>
         <Button
+          key={index}
           size={'small'}
           variant={"contained"}
           onClick={() => handleClick(command)}
