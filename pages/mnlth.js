@@ -38,9 +38,9 @@ export default function Mnlth({ data }) {
   return (
     <Layout>
       <Typography variant={'body2'} paragraph={true} textAlign={'center'}>
-        Temporary unavailable because the scrapping script need update and I'm not available before the end of the month. <br/>
+        Temporarily unavailable as the scrapping script needs to be updated and I'm not available until the end of the month. <br/>
         Please, see the link below for less detailed live data. <br/>
-        All my apologizes for the unconvenients.
+        My apologizes for the inconvenience.
       </Typography>
       <Box sx={{textAlign: 'center', margin: '.5rem'}}>
         <Button variant={'contained'} color={'error'}>
