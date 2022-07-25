@@ -1,13 +1,13 @@
 import React from 'react';
-import {requestMnlthAPI} from "../lib/mnlth";
 import MnlthTable from "../components/MnlthTable";
 import Layout from "../components/Layout";
 import MnlthButton from "../components/MnlthButton";
 import {Box, Button, Typography} from "@mui/material";
 import {roundToTwo} from "../lib/utils";
+import {requestMintvialAPI} from "../lib/mintvial";
 
 export async function getServerSideProps(context) {
-  const data = await requestMnlthAPI('floor');
+  const data = await requestMintvialAPI('floor');
 
   return {
     props: {
@@ -16,12 +16,12 @@ export async function getServerSideProps(context) {
   };
 }
 
-export default function Mnlth({ data }) {
+export default function Mintvial({ data }) {
   const [stateCommand, setCommand] = React.useState('floor');
   const [stateData, setData] = React.useState(data);
   const handleClick = async (command) => {
     try {
-      setData(await requestMnlthAPI(command));
+      setData(await requestMintvialAPI(command));
       setCommand(command);
     } catch (e) {
       console.log(e);
@@ -31,12 +31,10 @@ export default function Mnlth({ data }) {
   };
   const commandList = [
     'diff',
-    'dunk',
     'floor',
     'left',
     'opening',
     'revealed',
-    'skinvials',
     'target',
   ];
 

@@ -2,18 +2,8 @@ import {Box, Button} from "@mui/material";
 import React from "react";
 import {useTheme} from "@mui/material/styles";
 
-const commandList = [
-  'diff',
-  'dunk',
-  'floor',
-  'left',
-  'opening',
-  'revealed',
-  'skinvials',
-  'target',
-];
 
-export default function MnlthButton({ activeCommand, handleClick}) {
+export default function MnlthButton({ activeCommand, handleClick, commandList}) {
   const theme = useTheme();
 
   return (
