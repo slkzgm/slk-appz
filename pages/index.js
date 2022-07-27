@@ -31,6 +31,23 @@ export default function Home() {
           I wish you a very good tour and hope you will find these resources useful! <br/>
         </Typography>
       </section>
+      <Divider variant={"middle"}>MINTVIAL LIVE</Divider>
+      <AppBox>
+        <LinkButton variant={'contained'}>
+          <Link href={'/mintvial'}>
+            <Typography variant={'button'} fontWeight={'bold'}>
+              Browse mintvial live data
+            </Typography>
+          </Link>
+        </LinkButton>
+        <Button variant={'contained'}>
+          <Link href={"/api/mintvial/all"}>
+            <Typography variant={'button'} fontWeight={'bold'}>
+              Retrieve data from API
+            </Typography>
+          </Link>
+        </Button>
+      </AppBox>
       <Divider variant={"middle"}>MNLTH LIVE</Divider>
       <AppBox>
         <LinkButton variant={'contained'}>
@@ -51,6 +68,13 @@ export default function Home() {
           <a href={"https://t.co/I9w1OgT6d5"} target={'_blank'} rel="noopener noreferrer">
             <Typography variant={'button'} fontWeight={'bold'}>
               Add the bot to your discord server
+            </Typography>
+          </a>
+        </LinkButton>
+        <LinkButton variant={'contained'} color={'error'}>
+          <a href={"https://docs.google.com/spreadsheets/d/1MfLZU3EKSBlbNm1v_eSMvd1kCjMugu9wAXI4Fdvq-kE/edit?usp=sharing"} target={'_blank'} rel="noopener noreferrer">
+            <Typography variant={'button'} fontWeight={'bold'}>
+              GSheet MNLTH live data
             </Typography>
           </a>
         </LinkButton>
