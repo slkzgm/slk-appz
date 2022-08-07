@@ -47,6 +47,13 @@ export default function Home() {
             </Typography>
           </Link>
         </Button>
+        <LinkButton variant={'contained'} color={'secondary'} startIcon={<DiscordIcon/>}>
+          <a href={"https://discord.com/oauth2/authorize?client_id=1005857622597062726&permissions=0&scope=bot"} target={'_blank'} rel="noopener noreferrer">
+            <Typography variant={'button'} fontWeight={'bold'}>
+              Add the bot to your discord server
+            </Typography>
+          </a>
+        </LinkButton>
       </AppBox>
       <Divider variant={"middle"}>MNLTH LIVE</Divider>
       <AppBox>
@@ -65,7 +72,7 @@ export default function Home() {
           </Link>
         </Button>
         <LinkButton variant={'contained'} color={'secondary'} startIcon={<DiscordIcon/>}>
-          <a href={"https://t.co/I9w1OgT6d5"} target={'_blank'} rel="noopener noreferrer">
+          <a href={"https://discord.com/api/oauth2/authorize?client_id=971530632826077265&permissions=0&scope=bot"} target={'_blank'} rel="noopener noreferrer">
             <Typography variant={'button'} fontWeight={'bold'}>
               Add the bot to your discord server
             </Typography>
