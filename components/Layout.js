@@ -47,8 +47,8 @@ export default function Layout({ children, home, meta }) {
     },
   });
 
-  if (!meta.name)
-    meta.name = name;
+  if (!meta)
+    meta = {name: 'SlKzᵍᵐ'};
 
   return (
     <ThemeProvider theme={theme}>

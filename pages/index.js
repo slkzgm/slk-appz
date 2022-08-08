@@ -97,7 +97,6 @@ export const getServerSideProps = async () => {
     .then(response => response.json())
     .then(json => {meta = json})
 
-  console.log('ici:', meta);
   return {
     props: {
       meta
