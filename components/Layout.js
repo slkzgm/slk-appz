@@ -6,11 +6,12 @@ import {
   createTheme,
   CssBaseline,
   Divider,
-  ThemeProvider,
+  ThemeProvider, Typography,
   useMediaQuery
 } from "@mui/material";
 import TwitterIcon from '@mui/icons-material/Twitter';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import React from "react";
 
 export default function Layout({ children, home, metaTags }) {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
@@ -55,7 +56,7 @@ export default function Layout({ children, home, metaTags }) {
         <Head>
           <link rel="icon" href="/favicon.ico" />
           <meta name="description" content={metaTags?.description}/>
-          <meta name="og:image" content={metaTags?.imgUrl} />
+          <meta name="og:image" content={'./public/images/profile.png'} />
           <meta name="og:title" content={metaTags?.title} />
 
           <meta name="twitter:card" content="summary_large_image" />
@@ -94,11 +95,17 @@ export default function Layout({ children, home, metaTags }) {
                   />
                 </a>
               </Link>
-              <h2 className={styles.headingLg}>
-                <Link href="/">
-                  <a className={styles.colorInherit}>{metaTags?.name}</a>
-                </Link>
-              </h2>
+              <Typography
+                variant={'h5'} color={'primary'} sx={{textAlign: 'center', margin: '.5rem'}}
+              >
+                {metaTags?.title}
+              </Typography>
+              {/*<h2 className={styles.headingLg}>*/}
+              {/*  <Link href="/">*/}
+              {/*    <a className={styles.colorInherit}>{metaTags?.name}</a>*/}
+              {/*  </Link>*/}
+              {/*</h2>*/}
+
             </>
           )}
         </header>

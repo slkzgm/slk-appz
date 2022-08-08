@@ -47,7 +47,10 @@ export default function Mintvial({ data, metaTags }) {
       <MnlthTable data={stateData} />
       {
         stateCommand === 'opening' ?
-          <Typography sx={{margin: '.5rem', textAlign: 'center'}}>Max value loss: {roundToTwo(stateData[9].maxLoss)} ETH. (-{roundToTwo(stateData[9].maxLossPercent)}%)</Typography> : ''
+          <Typography sx={{margin: '.5rem', textAlign: 'center'}}>
+            Max value loss: {roundToTwo(stateData[9].maxLoss)} ETH.
+            (-{roundToTwo(stateData[9].maxLossPercent)}%)
+          </Typography> : ''
       }
     </Layout>
   );
