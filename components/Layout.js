@@ -12,9 +12,7 @@ import {
 import TwitterIcon from '@mui/icons-material/Twitter';
 import GitHubIcon from '@mui/icons-material/GitHub';
 
-const name = 'SlKzᵍᵐ';
-
-export default function Layout({ children, home, meta }) {
+export default function Layout({ children, home, metaTags }) {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
   const theme = createTheme({
     palette: {
@@ -47,8 +45,8 @@ export default function Layout({ children, home, meta }) {
     },
   });
 
-  if (!meta)
-    meta = {name: 'SlKzᵍᵐ'};
+  if (!metaTags || !metaTags.name)
+    metaTags = {name: 'SlKzᵍᵐ'};
 
   return (
     <ThemeProvider theme={theme}>
@@ -56,18 +54,18 @@ export default function Layout({ children, home, meta }) {
       <div className={styles.container}>
         <Head>
           <link rel="icon" href="/favicon.ico" />
-          <meta name="description" content={meta?.description}/>
-          <meta name="og:image" content={meta?.imgUrl} />
-          <meta name="og:title" content={meta?.title} />
+          <meta name="description" content={metaTags?.description}/>
+          <meta name="og:image" content={metaTags?.imgUrl} />
+          <meta name="og:title" content={metaTags?.title} />
 
           <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:site" content={meta?.twitterSite} />
-          <meta name="twitter:creator" content={meta?.twitterCreator} />
-          <meta name="twitter:title" content={meta?.title} />
-          <meta name="twitter:description" content={meta?.description} />
-          <meta name="twitter:image" content={meta?.imgUrl} />
+          <meta name="twitter:site" content={metaTags?.twitterSite} />
+          <meta name="twitter:creator" content={metaTags?.twitterCreator} />
+          <meta name="twitter:title" content={metaTags?.title} />
+          <meta name="twitter:description" content={metaTags?.description} />
+          <meta name="twitter:image" content={metaTags?.imgUrl} />
 
-          <title>{meta?.title}</title>
+          <title>{metaTags?.title}</title>
         </Head>
         <header className={styles.header}>
           {home ? (
@@ -78,9 +76,9 @@ export default function Layout({ children, home, meta }) {
                 className={styles.borderCircle}
                 height={144}
                 width={144}
-                alt={meta?.name}
+                alt={metaTags?.name}
               />
-              <h1 className={styles.heading2Xl}>{meta?.name}</h1>
+              <h1 className={styles.heading2Xl}>{metaTags?.name}</h1>
             </>
           ) : (
             <>
@@ -92,13 +90,13 @@ export default function Layout({ children, home, meta }) {
                     className={styles.borderCircle}
                     height={108}
                     width={108}
-                    alt={meta?.name}
+                    alt={metaTags?.name}
                   />
                 </a>
               </Link>
               <h2 className={styles.headingLg}>
                 <Link href="/">
-                  <a className={styles.colorInherit}>{meta?.name}</a>
+                  <a className={styles.colorInherit}>{metaTags?.name}</a>
                 </Link>
               </h2>
             </>
@@ -129,7 +127,7 @@ export default function Layout({ children, home, meta }) {
            target="_blank"
            rel="noopener noreferrer"
         >
-          Built by {meta?.name}
+          Built by {metaTags?.name}
         </a>
       </div>
     </ThemeProvider>
