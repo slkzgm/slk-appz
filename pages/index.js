@@ -20,9 +20,9 @@ const AppBox = styled(Box)({
   textAlign: 'center'
 });
 
-export default function Home() {
+export default function Home({ meta }) {
   return (
-    <Layout home>
+    <Layout home meta={meta}>
       <section>
         <Typography variant={'h5'} color={'primary'}>Welcome to my portal</Typography>
         <Typography variant={'body2'} paragraph={true}>
@@ -89,4 +89,18 @@ export default function Home() {
       {/*<Divider variant={"middle"}>My Threads</Divider>*/}
     </Layout>
   )
+}
+
+export const getServerSideProps = async () => {
+  let meta = null;
+  await fetch('https://www.slkzgm.com/slkzappz')
+    .then(response => response.json())
+    .then(json => meta = json)
+
+  console.log('ici:', meta);
+  return {
+    props: {
+      meta
+    }
+  }
 }

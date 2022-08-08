@@ -47,7 +47,6 @@ export default function Layout({ children, home, meta }) {
       },
     },
   });
-  console.log(meta);
 
   return (
     <ThemeProvider theme={theme}>
@@ -59,12 +58,11 @@ export default function Layout({ children, home, meta }) {
           <meta name="og:image" content={meta?.url} />
           <meta name="og:title" content={'prout'} />
           <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:site" content="@nytimes" />
           <meta name="twitter:creator" content="@SarahMaslinNir" />
           <meta name="twitter:title" content={meta?.title} />
           <meta name="twitter:description" content="NEWARK - The guest list and parade of limousines with celebrities emerging from them seemed more suited to a red carpet event in Hollywood or New York than than a gritty stretch of Sussex Avenue near the former site of the James M. Baxter Terrace public housing project here." />
-          <meta name="twitter:image" content="http://graphics8.nytimes.com/images/2012/02/19/us/19whitney-span/19whitney-span-articleLarge.jpg" />
+          <meta name="twitter:image" content="https://clonex-assets.rtfkt.com/images/4608.png" />
           <title>{meta?.title}</title>
         </Head>
         <header className={styles.header}>
@@ -134,15 +132,3 @@ export default function Layout({ children, home, meta }) {
   );
 }
 
-export const getServerSideProps = async () => {
-  let meta = null;
-  await fetch('https://www.slkzgm.com/slkzappz')
-    .then(response => response.json())
-    .then(json => meta = json)
-
-  return {
-    props: {
-      meta
-    }
-  }
-}
