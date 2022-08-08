@@ -12,9 +12,6 @@ import {
 import TwitterIcon from '@mui/icons-material/Twitter';
 import GitHubIcon from '@mui/icons-material/GitHub';
 
-const name = 'SlKzᵍᵐ';
-export const siteTitle = 'SlKAppz';
-
 export default function Layout({ children, home, meta }) {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
   const theme = createTheme({
@@ -54,15 +51,17 @@ export default function Layout({ children, home, meta }) {
       <div className={styles.container}>
         <Head>
           <link rel="icon" href="/favicon.ico" />
-          <meta name="description" content="Enter the SlKz space!"/>
-          <meta name="og:image" content={meta?.url} />
-          <meta name="og:title" content={'prout'} />
+          <meta name="description" content={meta?.description}/>
+          <meta name="og:image" content={meta?.imgUrl} />
+          <meta name="og:title" content={meta?.title} />
+
           <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:site" content="@nytimes" />
-          <meta name="twitter:creator" content="@SarahMaslinNir" />
+          <meta name="twitter:site" content={meta?.twitterSite} />
+          <meta name="twitter:creator" content={meta?.twitterCreator} />
           <meta name="twitter:title" content={meta?.title} />
-          <meta name="twitter:description" content="NEWARK - The guest list and parade of limousines with celebrities emerging from them seemed more suited to a red carpet event in Hollywood or New York than than a gritty stretch of Sussex Avenue near the former site of the James M. Baxter Terrace public housing project here." />
-          <meta name="twitter:image" content={meta?.url} />
+          <meta name="twitter:description" content={meta?.description} />
+          <meta name="twitter:image" content={meta?.imgUrl} />
+
           <title>{meta?.title}</title>
         </Head>
         <header className={styles.header}>
@@ -74,9 +73,9 @@ export default function Layout({ children, home, meta }) {
                 className={styles.borderCircle}
                 height={144}
                 width={144}
-                alt={name}
+                alt={meta.name}
               />
-              <h1 className={styles.heading2Xl}>{name}</h1>
+              <h1 className={styles.heading2Xl}>{meta.name}</h1>
             </>
           ) : (
             <>
@@ -88,13 +87,13 @@ export default function Layout({ children, home, meta }) {
                     className={styles.borderCircle}
                     height={108}
                     width={108}
-                    alt={name}
+                    alt={meta.name}
                   />
                 </a>
               </Link>
               <h2 className={styles.headingLg}>
                 <Link href="/">
-                  <a className={styles.colorInherit}>{name}</a>
+                  <a className={styles.colorInherit}>{meta.name}</a>
                 </Link>
               </h2>
             </>
@@ -125,7 +124,7 @@ export default function Layout({ children, home, meta }) {
            target="_blank"
            rel="noopener noreferrer"
         >
-          Built by SlKzᵍᵐ
+          Built by {meta.name}
         </a>
       </div>
     </ThemeProvider>
