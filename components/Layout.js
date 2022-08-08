@@ -47,6 +47,7 @@ export default function Layout({ children, home, meta }) {
       },
     },
   });
+  console.log(meta);
 
   return (
     <ThemeProvider theme={theme}>
@@ -54,16 +55,16 @@ export default function Layout({ children, home, meta }) {
       <div className={styles.container}>
         <Head>
           <link rel="icon" href="/favicon.ico" />
-          <meta
-            name="description"
-            content="Enter the SlKz space!"
-          />
-          <meta
-            property="og:image"
-            content={meta?.url}
-          />
+          <meta name="description" content="Enter the SlKz space!"/>
+          <meta name="og:image" content={meta?.url} />
           <meta name="og:title" content={'prout'} />
           <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:site" content="@nytimes" />
+          <meta name="twitter:creator" content="@SarahMaslinNir" />
+          <meta name="twitter:title" content={meta.title} />
+          <meta name="twitter:description" content="NEWARK - The guest list and parade of limousines with celebrities emerging from them seemed more suited to a red carpet event in Hollywood or New York than than a gritty stretch of Sussex Avenue near the former site of the James M. Baxter Terrace public housing project here." />
+          <meta name="twitter:image" content="http://graphics8.nytimes.com/images/2012/02/19/us/19whitney-span/19whitney-span-articleLarge.jpg" />
           <title>{meta.title}</title>
         </Head>
         <header className={styles.header}>
