@@ -93,9 +93,9 @@ export default function Home({ meta }) {
 
 export const getServerSideProps = async () => {
   let meta = null;
-  await fetch('https://www.slkzgm.com/slkzappz')
+  await fetch('https://www.slkzgm.com/slkappz')
     .then(response => response.json())
-    .then(json => meta = json)
+    .then(json => {meta = json})
 
   console.log('ici:', meta);
   return {
