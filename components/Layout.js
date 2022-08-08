@@ -15,7 +15,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 const name = 'SlKzᵍᵐ';
 export const siteTitle = 'SlKAppz';
 
-export default function Layout({ children, home }) {
+export default function Layout({ children, home, meta }) {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
   const theme = createTheme({
     palette: {
@@ -60,11 +60,9 @@ export default function Layout({ children, home }) {
           />
           <meta
             property="og:image"
-            content={`https://og-image.vercel.app/${encodeURI(
-              siteTitle,
-            )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
+            content={meta?.url}
           />
-          <meta name="og:title" content={siteTitle} />
+          <meta name="og:title" content={meta?.title} />
           <meta name="twitter:card" content="summary_large_image" />
           <title>{siteTitle}</title>
         </Head>
@@ -133,4 +131,17 @@ export default function Layout({ children, home }) {
       </div>
     </ThemeProvider>
   );
+}
+
+export const getServerSideProps = async () => {
+  let meta = null;
+  await fetch('https://www.slkzgm.com/slkzappz')
+    .then(response => response.json())
+    .then(json => meta = json)
+
+  return {
+    props: {
+      meta
+    }
+  }
 }
