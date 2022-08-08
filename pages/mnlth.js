@@ -5,18 +5,21 @@ import Layout from "../components/Layout";
 import MnlthButton from "../components/MnlthButton";
 import {Typography} from "@mui/material";
 import {roundToTwo} from "../lib/utils";
+import {requestMetaTagAPI} from "../lib/metaTags";
 
 export async function getServerSideProps(context) {
   const data = await requestMnlthAPI('floor');
+  const metaTags = await requestMetaTagAPI('mnlth');
 
   return {
     props: {
-      data
+      data,
+      metaTags
     }
   };
 }
 
-export default function Mnlth({ data }) {
+export default function Mnlth({ data, metaTags }) {
   const [stateCommand, setCommand] = React.useState('floor');
   const [stateData, setData] = React.useState(data);
   const handleClick = async (command) => {
@@ -41,7 +44,7 @@ export default function Mnlth({ data }) {
   ];
 
   return (
-    <Layout>
+    <Layout metaTags={metaTags}>
       <MnlthButton activeCommand={stateCommand} handleClick={handleClick} commandList={commandList}/>
       <MnlthTable data={stateData} />
       {

@@ -5,18 +5,21 @@ import MnlthButton from "../components/MnlthButton";
 import {Typography} from "@mui/material";
 import {roundToTwo} from "../lib/utils";
 import {requestMintvialAPI} from "../lib/mintvial";
+import {requestMetaTagAPI} from "../lib/metaTags";
 
 export async function getServerSideProps(context) {
   const data = await requestMintvialAPI('floor');
+  const metaTags = await requestMetaTagAPI('mintvial');
 
   return {
     props: {
-      data
+      data,
+      metaTags
     }
   };
 }
 
-export default function Mintvial({ data }) {
+export default function Mintvial({ data, metaTags }) {
   const [stateCommand, setCommand] = React.useState('floor');
   const [stateData, setData] = React.useState(data);
   const handleClick = async (command) => {
@@ -39,7 +42,7 @@ export default function Mintvial({ data }) {
   ];
 
   return (
-    <Layout>
+    <Layout metaTags={metaTags}>
       <MnlthButton activeCommand={stateCommand} handleClick={handleClick} commandList={commandList}/>
       <MnlthTable data={stateData} />
       {

@@ -21,6 +21,16 @@ const AppBox = styled(Box)({
   textAlign: 'center'
 });
 
+export const getServerSideProps = async () => {
+  const metaTags = await requestMetaTagAPI();
+
+  return {
+    props: {
+      metaTags
+    }
+  }
+}
+
 export default function Home({ metaTags }) {
   return (
     <Layout home metaTags={metaTags}>
@@ -90,15 +100,4 @@ export default function Home({ metaTags }) {
       {/*<Divider variant={"middle"}>My Threads</Divider>*/}
     </Layout>
   )
-}
-
-export const getServerSideProps = async () => {
-  const metaTags = await requestMetaTagAPI();
-
-  console.log('here:', metaTags);
-  return {
-    props: {
-      metaTags
-    }
-  }
 }
