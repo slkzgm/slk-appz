@@ -95,6 +95,7 @@ export default function Home({ metaTags }) {
 export const getServerSideProps = async () => {
   const metaTags = await requestMetaTagAPI();
 
+  console.log('here:', metaTags);
   return {
     props: {
       metaTags
