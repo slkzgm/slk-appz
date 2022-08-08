@@ -1,7 +1,8 @@
 import {Box, Button, Divider, SvgIcon, Typography} from "@mui/material";
+import {styled} from "@mui/material/styles";
 import Link from "next/link";
 import Layout from "../components/Layout";
-import {styled} from "@mui/material/styles";
+import {requestMetaTagAPI} from "../lib/metaTags";
 
 function DiscordIcon(props) {
   return (
@@ -20,9 +21,9 @@ const AppBox = styled(Box)({
   textAlign: 'center'
 });
 
-export default function Home({ meta }) {
+export default function Home({ metaTags }) {
   return (
-    <Layout home meta={meta}>
+    <Layout home metaTags={metaTags}>
       <section>
         <Typography variant={'h5'} color={'primary'}>Welcome to my portal</Typography>
         <Typography variant={'body2'} paragraph={true}>
@@ -92,14 +93,11 @@ export default function Home({ meta }) {
 }
 
 export const getServerSideProps = async () => {
-  let meta = null;
-  await fetch('https://www.slkzgm.com/slkappz')
-    .then(response => response.json())
-    .then(json => {meta = json})
+  const metaTags = await requestMetaTagAPI();
 
   return {
     props: {
-      meta
+      metaTags
     }
   }
 }
