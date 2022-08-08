@@ -62,9 +62,9 @@ export default function Layout({ children, home, meta }) {
             property="og:image"
             content={meta?.url}
           />
-          <meta name="og:title" content={meta?.title} />
+          <meta name="og:title" content={'prout'} />
           <meta name="twitter:card" content="summary_large_image" />
-          <title>{siteTitle}</title>
+          <title>{meta.title}</title>
         </Head>
         <header className={styles.header}>
           {home ? (
