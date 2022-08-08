@@ -12,6 +12,8 @@ import {
 import TwitterIcon from '@mui/icons-material/Twitter';
 import GitHubIcon from '@mui/icons-material/GitHub';
 
+const name = 'SlKzᵍᵐ';
+
 export default function Layout({ children, home, meta }) {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
   const theme = createTheme({
@@ -45,6 +47,9 @@ export default function Layout({ children, home, meta }) {
     },
   });
 
+  if (!meta.name)
+    meta.name = name;
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline/>
@@ -73,9 +78,9 @@ export default function Layout({ children, home, meta }) {
                 className={styles.borderCircle}
                 height={144}
                 width={144}
-                alt={meta.name}
+                alt={meta?.name}
               />
-              <h1 className={styles.heading2Xl}>{meta.name}</h1>
+              <h1 className={styles.heading2Xl}>{meta?.name}</h1>
             </>
           ) : (
             <>
@@ -87,13 +92,13 @@ export default function Layout({ children, home, meta }) {
                     className={styles.borderCircle}
                     height={108}
                     width={108}
-                    alt={meta.name}
+                    alt={meta?.name}
                   />
                 </a>
               </Link>
               <h2 className={styles.headingLg}>
                 <Link href="/">
-                  <a className={styles.colorInherit}>{meta.name}</a>
+                  <a className={styles.colorInherit}>{meta?.name}</a>
                 </Link>
               </h2>
             </>
@@ -103,7 +108,7 @@ export default function Layout({ children, home, meta }) {
         {!home && (
           <div className={styles.backToHome}>
             <Link href="/">
-              <a>← Beta to home</a>
+              <a>← Back to home</a>
             </Link>
           </div>
         )}
@@ -124,7 +129,7 @@ export default function Layout({ children, home, meta }) {
            target="_blank"
            rel="noopener noreferrer"
         >
-          Built by {meta.name}
+          Built by {meta?.name}
         </a>
       </div>
     </ThemeProvider>

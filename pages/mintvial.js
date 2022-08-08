@@ -2,7 +2,7 @@ import React from 'react';
 import MnlthTable from "../components/MnlthTable";
 import Layout from "../components/Layout";
 import MnlthButton from "../components/MnlthButton";
-import {Box, Button, Typography} from "@mui/material";
+import {Typography} from "@mui/material";
 import {roundToTwo} from "../lib/utils";
 import {requestMintvialAPI} from "../lib/mintvial";
 
@@ -40,20 +40,6 @@ export default function Mintvial({ data }) {
 
   return (
     <Layout>
-      {/*<Typography variant={'body2'} paragraph={true} textAlign={'center'}>*/}
-      {/*  Temporarily unavailable as the scrapping script needs to be updated and I'm not available until the end of the month. <br/>*/}
-      {/*  Please, see the link below for less detailed live data. <br/>*/}
-      {/*  My apologizes for the inconvenience.*/}
-      {/*</Typography>*/}
-      {/*<Box sx={{textAlign: 'center', margin: '.5rem'}}>*/}
-      {/*  <Button variant={'contained'} color={'error'}>*/}
-      {/*    <a href={"https://docs.google.com/spreadsheets/d/1MfLZU3EKSBlbNm1v_eSMvd1kCjMugu9wAXI4Fdvq-kE/edit?usp=sharing"} target={'_blank'} rel="noopener noreferrer">*/}
-      {/*      <Typography variant={'button'} fontWeight={'bold'}>*/}
-      {/*        GSheet MNLTH live data*/}
-      {/*      </Typography>*/}
-      {/*    </a>*/}
-      {/*  </Button>*/}
-      {/*</Box>*/}
       <MnlthButton activeCommand={stateCommand} handleClick={handleClick} commandList={commandList}/>
       <MnlthTable data={stateData} />
       {
