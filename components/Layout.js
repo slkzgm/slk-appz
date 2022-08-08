@@ -56,7 +56,7 @@ export default function Layout({ children, home, metaTags }) {
         <Head>
           <link rel="icon" href="/favicon.ico" />
           <meta name="description" content={metaTags?.description}/>
-          <meta name="og:image" content={'./public/images/profile.png'} />
+          <meta name="og:image" content={metaTags?.imgUrl} />
           <meta name="og:title" content={metaTags?.title} />
 
           <meta name="twitter:card" content="summary_large_image" />
