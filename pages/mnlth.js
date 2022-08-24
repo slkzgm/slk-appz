@@ -34,12 +34,10 @@ export default function Mnlth({ data, metaTags }) {
   };
   const commandList = [
     'diff',
-    'dunk',
     'floor',
     'left',
     'opening',
     'revealed',
-    'skinvials',
     'target',
   ];
 
