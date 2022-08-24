@@ -9,7 +9,7 @@ import {requestMetaTagAPI} from "../lib/metaTags";
 
 export async function getServerSideProps(context) {
   const data = await requestMintvialAPI('floor');
-  const metaTags = await requestMetaTagAPI('mintvial');
+  const metaTags = await requestMetaTagAPI('mintvials');
 
   return {
     props: {
@@ -19,7 +19,7 @@ export async function getServerSideProps(context) {
   };
 }
 
-export default function Mintvial({ data, metaTags }) {
+export default function Mintvials({ data, metaTags }) {
   const [stateCommand, setCommand] = React.useState('floor');
   const [stateData, setData] = React.useState(data);
   const handleClick = async (command) => {

@@ -44,17 +44,17 @@ export default function Home({ metaTags }) {
           I wish you a very good tour and hope you will find these resources useful! <br/>
         </Typography>
       </section>
-      <Divider variant={"middle"}>MINTVIAL LIVE</Divider>
+      <Divider variant={"middle"}>MINTVIALS LIVE</Divider>
       <AppBox>
         <LinkButton variant={'contained'}>
-          <Link href={'/mintvial'}>
+          <Link href={'/mintvials'}>
             <Typography variant={'button'} fontWeight={'bold'}>
-              Browse mintvial live data
+              Browse mintvials live data
             </Typography>
           </Link>
         </LinkButton>
         <Button variant={'contained'}>
-          <Link href={"/api/mintvial/all"}>
+          <Link href={"/api/mintvials/all"}>
             <Typography variant={'button'} fontWeight={'bold'}>
               Retrieve data from API
             </Typography>
