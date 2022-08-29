@@ -1,7 +1,6 @@
-import {Box, Button} from "@mui/material";
+import {Box, Button, Typography} from "@mui/material";
 import React from "react";
 import {useTheme} from "@mui/material/styles";
-
 
 export default function MnlthButton({ activeCommand, handleClick, commandList}) {
   const theme = useTheme();
@@ -11,6 +10,11 @@ export default function MnlthButton({ activeCommand, handleClick, commandList}) 
       sx={{
         textAlign:'center'}}
     >
+      <Typography
+        sx={{marginBottom: '.5rem'}}
+      >
+        {activeCommand.desc}
+      </Typography>
       {commandList.map((command, index) =>
         <Button
           key={index}
@@ -18,14 +22,14 @@ export default function MnlthButton({ activeCommand, handleClick, commandList}) 
           variant={"contained"}
           onClick={() => handleClick(command)}
           sx={
-            command === activeCommand ?
+            command.command === activeCommand.command ?
               {margin: '.25rem', backgroundColor: theme.palette.primary.dark}
               : {margin: '.25rem'}
           }
         >
-          {command}!
+          {command.command}!
         </Button>
-      )}
+        )}
     </Box>
   );
 }
