@@ -99,6 +99,23 @@ export default function Home({ metaTags }) {
           </a>
         </LinkButton>
       </AppBox>
+      <Divider variant={"middle"}>FORGING SZN LIVE</Divider>
+      <AppBox>
+        <LinkButton variant={'contained'}>
+          <Link href={'/forgingszn'}>
+            <Typography variant={'button'} fontWeight={'bold'}>
+              Browse forging szn 1 live data
+            </Typography>
+          </Link>
+        </LinkButton>
+        <Button variant={'contained'}>
+          <Link href={"/api/forgingszn/all"}>
+            <Typography variant={'button'} fontWeight={'bold'}>
+              Retrieve data from API
+            </Typography>
+          </Link>
+        </Button>
+      </AppBox>
       {/*<Divider variant={"middle"}>My Threads</Divider>*/}
     </Layout>
   )
