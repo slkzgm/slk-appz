@@ -3,6 +3,7 @@ import {styled} from "@mui/material/styles";
 import Link from "next/link";
 import Layout from "../components/Layout";
 import {requestMetaTagAPI} from "../lib/metaTags";
+import {TwitterTimelineEmbed} from "react-twitter-embed";
 
 function DiscordIcon(props) {
   return (
@@ -98,6 +99,10 @@ export default function Home({ metaTags }) {
             </Typography>
           </a>
         </LinkButton>
+      </AppBox>
+      <Divider variant={"middle"}>LAST REVEALS</Divider>
+      <AppBox>
+        <TwitterTimelineEmbed sourceType={'profile'} screenName={'rtfktrvl'} options={{height: 400}}/>
       </AppBox>
       <Divider variant={"middle"}>FORGING SZN LIVE</Divider>
       <AppBox>
