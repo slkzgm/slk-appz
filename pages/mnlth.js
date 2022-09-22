@@ -28,7 +28,7 @@ export default function Mnlth({ data, metaTags }) {
     {command: 'revealed', desc: 'What has already been revealed, and the current distribution of each DNA and their floor price.'},
     {command: 'target', desc: 'What the final distribution should look like.'}
   ];
-  const [stateCommand, setCommand] = React.useState(commandList[0]);
+  const [stateCommand, setCommand] = React.useState(commandList[1]);
   const [stateData, setData] = React.useState(data);
   const handleClick = async (command) => {
     try {
