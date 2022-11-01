@@ -4,9 +4,10 @@ import {Box, TextField} from "@mui/material";
 import {requestMetaTagAPI} from "../lib/metaTags";
 import LoadingButton from '@mui/lab/LoadingButton';
 import {requestSandboxAsset} from "../lib/sandbox";
+import Image from "mui-image";
 
 export async function getServerSideProps(context) {
-  const metaTags = await requestMetaTagAPI();
+  const metaTags = await requestMetaTagAPI('sandbox');
 
   return {
     props: {
@@ -30,28 +31,28 @@ export default function Sandbox({ metaTags }) {
 
   return (
     <Layout metaTags={metaTags}>
-      <TextField id="outlined-basic" label="Outlined" variant="outlined" value={cloneNumber} onChange={(e) => setCloneNumber(e.target.value)}/>
-      <LoadingButton
-        loading = {loading}
-        variant="outlined"
-        onClick={handleClick}
+      <Box
+        sx={{
+          margin: '.5rem',
+          textAlign: 'center'
+        }}
       >
-        Submit
-      </LoadingButton>
-      {imgUrl ?
-        <Box
-          component="img"
-          sx={{
-            height: 233,
-            width: 350,
-            maxHeight: { xs: 233, md: 167 },
-            maxWidth: { xs: 350, md: 250 },
-          }}
-          alt="The house from the offer."
-          src={imgUrl}
-        >
-        </Box> : ''
-      }
+          <TextField id="outlined-basic" label="token id" variant="outlined" value={cloneNumber} onChange={(e) => setCloneNumber(e.target.value)}/>
+          <LoadingButton
+            loading = {loading}
+            variant="outlined"
+            onClick={handleClick}
+            sx={{
+              alignItems: "center"
+            }}
+          >
+            Submit
+          </LoadingButton>
+      </Box>
+        {imgUrl ?
+          <Image src={imgUrl}
+          /> : ''
+        }
     </Layout>
   )
 }
