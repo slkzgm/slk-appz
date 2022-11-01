@@ -37,7 +37,7 @@ export default function Sandbox({ metaTags }) {
           textAlign: 'center'
         }}
       >
-          <TextField id="outlined-basic" label="token id" variant="outlined" value={cloneNumber} onChange={(e) => setCloneNumber(e.target.value)}/>
+          <TextField id="outlined-basic" label="Token ID" variant="outlined" value={cloneNumber} onChange={(e) => setCloneNumber(e.target.value)}/>
           <LoadingButton
             loading = {loading}
             variant="outlined"
