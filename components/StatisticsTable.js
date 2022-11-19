@@ -23,7 +23,6 @@ const DataField = ({title, value, symbol}) => {
       sx={{
         textTransform: 'uppercase'
       }}
-      noWrap={true}
     >
       {title}
     </Typography>
