@@ -50,7 +50,7 @@ export default function Sandbox({ metaTags }) {
           </LoadingButton>
       </Box>
         {imgUrl ?
-          <Image src={imgUrl}
+          <Image src={imgUrl} alt={cloneNumber}
           /> : ''
         }
     </Layout>

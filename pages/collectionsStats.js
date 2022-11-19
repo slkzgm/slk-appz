@@ -20,7 +20,7 @@ export async function getServerSideProps(context) {
 export default function CollectionsStats({ data, metaTags }) {
   return (
     <Layout metaTags={metaTags}>
-      {data.map((collection, index)=> <StatisticsTable index={index} collection={collection}/>)}
+      {data.map((collection, index)=> <StatisticsTable key={index} collection={collection}/>)}
     </Layout>
   );
 }
