@@ -27,9 +27,12 @@ export default function Layout({ children, home, metaTags }) {
       error: {
         main: '#cc220f',
       },
+      background: {
+        darker: prefersDarkMode ? '#333333' : '#f6f6f6'
+      }
     },
     typography: {
-      fontSize: 15,
+      fontSize: 14,
       h5: {
         lineHeight: 1.25,
         letterSpacing: '-0.05em',
@@ -43,6 +46,10 @@ export default function Layout({ children, home, metaTags }) {
         fontWeight: 600,
         letterSpacing: '0em',
       },
+      h7: {
+        fontSize: 10,
+        color: 'grey'
+      }
     },
   });
 
