@@ -36,7 +36,7 @@ export default function Home({ metaTags }) {
   return (
     <Layout home metaTags={metaTags}>
       <section>
-        <Typography variant={'h5'} color={'primary'}>Welcome to my BETA portal</Typography>
+        <Typography variant={'h5'} color={'primary'}>Welcome to my portal</Typography>
         <Typography variant={'body2'} paragraph={true}>
           This is where you can follow the development of my projects, easily access all my
           applications, and why not, in the future read some of my threads!<br/>
