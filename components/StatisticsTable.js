@@ -15,15 +15,13 @@ const DataField = ({title, value, symbol}) => {
 
   return <Box>
     <Typography
-      variant={'h7'}
-      sx={{
-        textTransform: 'uppercase'
-      }}
+      variant={'csLabel'}
+      display={'block'}
     >
       {title}
     </Typography>
     <Typography
-     variant={'body1'}
+     variant={'csValue'}
      color={symbol === '%' ? (value < 1 ? 'red' : 'green') : 'main'}
     >
       {symbol && symbol === 'ETH' ? 'Ξ' : ''}
@@ -49,7 +47,7 @@ export default function StatisticsTable({ collection }) {
         <Grid item={true} xs={8}>
           <Grid container columns={4} sx={{marginLeft: '.5rem'}}>
             <Grid item={true} xs={4}>
-              <Typography sx={{textTransform: 'uppercase'}}>{collection.name}</Typography>
+              <Typography variant={'csTitle'}>{collection.name}</Typography>
             </Grid>
             <Grid item={true} xs={1} sx={{margin: 'auto'}}>
               <DataField title={'floor'} value={collection.floorPrice} symbol={'ETH'}/>
@@ -70,7 +68,7 @@ export default function StatisticsTable({ collection }) {
         </Grid>
         <Grid item={true} xs={2} sx={{textAlign: 'center'}} backgroundColor={theme.palette.background.darker}>
           <Box>
-            <Typography variant={'hLuks'} sx={{textTransform: 'uppercase'}}>
+            <Typography variant={'csLabel'}>
               total
             </Typography>
           </Box>

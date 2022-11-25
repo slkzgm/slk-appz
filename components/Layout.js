@@ -46,9 +46,19 @@ export default function Layout({ children, home, metaTags }) {
         fontWeight: 600,
         letterSpacing: '0em',
       },
-      h7: {
-        fontSize: 10,
-        color: 'grey'
+      csTitle: {
+        fontSize: 14,
+        fontWeight: 600,
+        textTransform: 'uppercase'
+      },
+      csLabel: {
+        fontSize: 12,
+        color: 'grey',
+        textTransform: 'uppercase'
+      },
+      csValue: {
+        fontSize: 14,
+        fontWeight: 600
       }
     },
   });

@@ -45,6 +45,23 @@ export default function Home({ metaTags }) {
           I wish you a very good tour and hope you will find these resources useful! <br/>
         </Typography>
       </section>
+      <Divider variant={"middle"}>RTFKT'S COLLECTIONS STATS</Divider>
+      <AppBox>
+        <LinkButton variant={'contained'}>
+          <Link href={'/market'}>
+            <Typography variant={'button'} fontWeight={'bold'}>
+              Browse collections data
+            </Typography>
+          </Link>
+        </LinkButton>
+        <Button variant={'contained'}>
+          <Link href={"/api/market"}>
+            <Typography variant={'button'} fontWeight={'bold'}>
+              Retrieve data from API
+            </Typography>
+          </Link>
+        </Button>
+      </AppBox>
       <Divider variant={"middle"}>MINTVIALS LIVE</Divider>
       <AppBox>
         <LinkButton variant={'contained'}>
@@ -120,6 +137,16 @@ export default function Home({ metaTags }) {
             </Typography>
           </Link>
         </Button>
+      </AppBox>
+      <Divider variant={"middle"}>SANDBOX VOXELS PREVIEW</Divider>
+      <AppBox>
+        <LinkButton variant={'contained'}>
+          <Link href={'/sandbox'}>
+            <Typography variant={'button'} fontWeight={'bold'}>
+              Preview your Sandbox RTFKT CloneX avatar
+            </Typography>
+          </Link>
+        </LinkButton>
       </AppBox>
       {/*<Divider variant={"middle"}>My Threads</Divider>*/}
     </Layout>
