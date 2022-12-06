@@ -1,8 +1,7 @@
-import {requestForgingSznAPI} from "../../../lib/forgingszn";
+import {requestCollectionsStats} from "../../../lib/market";
 
 export default async function handler(req, res) {
-  const { slug } = req.query;
-  const data = await requestForgingSznAPI(slug);
+  const data = await requestCollectionsStats();
 
   if (data)
     return res.json(data);

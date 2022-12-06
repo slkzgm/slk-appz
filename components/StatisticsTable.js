@@ -1,11 +1,7 @@
 import {roundToTwo} from "../lib/utils";
 import React from "react";
-import {Avatar, Box, Card, Grid, Typography} from "@mui/material";
-import {styled} from "@mui/material/styles";
-
-const StatsGridCell = styled(Grid)({
-  margin: 'auto'
-});
+import {Box, Card, CardMedia, Grid, Typography} from "@mui/material";
+import {useTheme} from "@mui/material/styles";
 
 const DataField = ({title, value, symbol}) => {
   let k = false;
@@ -19,15 +15,13 @@ const DataField = ({title, value, symbol}) => {
 
   return <Box>
     <Typography
-      variant={'caption'}
-      sx={{
-        textTransform: 'uppercase'
-      }}
+      variant={'csLabel'}
+      display={'block'}
     >
       {title}
     </Typography>
     <Typography
-     variant={'body1'}
+     variant={'csValue'}
      color={symbol === '%' ? (value < 1 ? 'red' : 'green') : 'main'}
     >
       {symbol && symbol === 'ETH' ? 'Ξ' : ''}
@@ -38,43 +32,49 @@ const DataField = ({title, value, symbol}) => {
 };
 
 export default function StatisticsTable({ collection }) {
+  const theme = useTheme();
+
   return (
-    <Card sx={{margin: '1rem'}}>
+    <Card sx={{margin: '1rem', borderRadius: '1rem'}}>
       <Grid container colums={12}>
         <Grid item={true} xs={2}>
-          <Avatar src={collection.image}/>
+          <CardMedia
+            component={"img"}
+            height={"100%"}
+            src={collection.image}
+          />
         </Grid>
         <Grid item={true} xs={8}>
-          <Grid container columns={4}>
+          <Grid container columns={4} sx={{marginLeft: '.5rem'}}>
             <Grid item={true} xs={4}>
-              <Typography sx={{textTransform: 'uppercase'}}>{collection.name}</Typography>
+              <Typography variant={'csTitle'}>{collection.name}</Typography>
             </Grid>
-            <StatsGridCell item={true} xs={1} sx={{margin: 'auto'}}>
+            <Grid item={true} xs={1} sx={{margin: 'auto'}}>
               <DataField title={'floor'} value={collection.floorPrice} symbol={'ETH'}/>
-            </StatsGridCell>
-            <StatsGridCell item={true} xs={1}>
+            </Grid>
+            <Grid item={true} xs={1}>
               <DataField title={'7d AVG.'} value={collection['7dAveragePrice']} symbol={'ETH'}/>
               <DataField title={'7d vol.'} value={collection['7dVolume']} symbol={'ETH'}/>
-            </StatsGridCell>
-            <StatsGridCell item={true} xs={1}>
+            </Grid>
+            <Grid item={true} xs={1}>
               <DataField title={'24hr %'} value={collection['24hFloorPriceChange']} symbol={'%'}/>
               <DataField title={'7d %'} value={collection['7dFloorPriceChange']} symbol={'%'}/>
-            </StatsGridCell>
-            <StatsGridCell item={true} xs={1}>
+            </Grid>
+            <Grid item={true} xs={1}>
               <DataField title={'30d AVG.'} value={collection['30dAveragePrice']} symbol={'ETH'}/>
               <DataField title={'30d vol.'} value={collection['30dVolume']} symbol={'ETH'}/>
-            </StatsGridCell>
+            </Grid>
           </Grid>
         </Grid>
-        <StatsGridCell item={true} xs={2} sx={{textAlign: 'center'}}>
+        <Grid item={true} xs={2} sx={{textAlign: 'center'}} backgroundColor={theme.palette.background.darker}>
           <Box>
-            <Typography variant={'caption'} sx={{textTransform: 'uppercase'}}>
+            <Typography variant={'csLabel'}>
               total
             </Typography>
           </Box>
           <DataField title={'owners'} value={collection['owners']}/>
           <DataField title={'volume'} value={collection.volume} symbol={'ETH'}/>
-        </StatsGridCell>
+        </Grid>
       </Grid>
     </Card>
   )
