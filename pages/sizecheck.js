@@ -36,7 +36,12 @@ export default function Sizecheck({ metaTags }) {
           textAlign: 'center'
         }}
       >
-          <TextField id="outlined-basic" label="Cirl ID" variant="outlined" value={cirlId} onChange={(e) => setCirlId(e.target.value)}/>
+          <TextField id="outlined-basic" label="Cirl ID or OS link" variant="outlined" value={cirlId} onChange={(e) => {
+            if (e.target.value[0] === 'h' && e.target.value.split('https://')) {
+              e.target.value = e.target.value.split('/')[6]
+            }
+            setCirlId(e.target.value);
+          }}/>
           <LoadingButton
             loading = {loading}
             variant="outlined"
