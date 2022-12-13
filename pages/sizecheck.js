@@ -56,7 +56,7 @@ export default function Sizecheck({ metaTags }) {
         {size ?
           <Typography
             textAlign={'center'}
-          >${size}</Typography> : ''
+          >{size}</Typography> : ''
         }
     </Layout>
   )
