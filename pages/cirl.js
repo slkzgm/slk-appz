@@ -111,7 +111,11 @@ export default function Cirl({ metaTags }) {
             key={pair.id}
             sx={{margin: '1rem'}}
           >
-            <Button>
+            <Button
+              href={`https://opensea.io/fr/assets/ethereum/0x11708dc8a3ea69020f520c81250abb191b190110/${pair.id}`}
+              target={'_blank'}
+              rel={'noopener noreferrer'}
+            >
               <Typography>{pair.id}</Typography>
             </Button>
             <Typography>{pair.cw}</Typography>
