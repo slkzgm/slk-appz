@@ -30,7 +30,7 @@ export default function Cirl({ metaTags }) {
   }
 
   const handleFindClick = async () => {
-    setHubbed(await findCirl(size, cw));
+    setHubbed(await findCirl(size, cw, true));
   }
 
 
