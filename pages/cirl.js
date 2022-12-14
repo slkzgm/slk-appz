@@ -66,7 +66,7 @@ export default function Cirl({ metaTags }) {
           <Typography textAlign={'center'}>{metadatas.id}</Typography>
           <Typography textAlign={'center'}>{metadatas.cw}</Typography>
           <Typography textAlign={'center'}>{metadatas.size}</Typography>
-          <Typography textAlign={'center'}>{metadatas.hubbed === 'true' ? 'HUBBED' : 'FORGED'}</Typography>
+          <Typography textAlign={'center'}>{metadatas.hubbed === 'true' ? 'HUBBED 🔀' : 'FORGED ⚒️'}</Typography>
           </Box>
           : ''
         }
@@ -120,6 +120,7 @@ export default function Cirl({ metaTags }) {
         >
           Search
         </LoadingButton>
+        <Typography color={'primary'}>Available supply: {hubbed.length}</Typography>
         {
           hubbed.length ? hubbed.map(pair => <Box
             key={pair.id}
@@ -134,6 +135,7 @@ export default function Cirl({ metaTags }) {
             </Button>
             <Typography>{pair.cw}</Typography>
             <Typography>{pair.size}</Typography>
+            <Typography>{pair.hubbed ? 'HUBBED 🔀' : 'FORGED ⚒️'}</Typography>
           </Box>) : ''
         }
       </Box>
