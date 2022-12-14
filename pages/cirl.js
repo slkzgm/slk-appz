@@ -3,7 +3,7 @@ import Layout from "../components/Layout";
 import {Box, TextField, Typography, Select, MenuItem, Button} from "@mui/material";
 import {requestMetaTagAPI} from "../lib/metaTags";
 import LoadingButton from '@mui/lab/LoadingButton';
-import {requestCirlSize, findCirl} from "../lib/cirl";
+import {requestCirlDetails, findCirl} from "../lib/cirl";
 
 export async function getServerSideProps(context) {
   const metaTags = await requestMetaTagAPI('sizecheck');
@@ -21,16 +21,17 @@ export default function Cirl({ metaTags }) {
   const [metadatas, setMetadatas] = useState('');
   const [size, setSize] = useState(8.5);
   const [cw, setCw] = useState('ICE');
+  const [state, setState] = useState(false);
   const [hubbed, setHubbed]  = useState([]);
 
   const handleMetadataClick = async () => {
     setLoading(true);
-    setMetadatas(await requestCirlSize(cirlId));
+    setMetadatas(await requestCirlDetails(cirlId));
     setLoading(false);
   }
 
   const handleFindClick = async () => {
-    setHubbed(await findCirl(size, cw, true));
+    setHubbed(await findCirl(size, cw, state));
   }
 
 
@@ -61,9 +62,13 @@ export default function Cirl({ metaTags }) {
           </LoadingButton>
         </Box>
         {metadatas ?
-          <Typography
-            textAlign={'center'}
-          >{metadatas}</Typography> : ''
+          <Box>
+          <Typography textAlign={'center'}>{metadatas.id}</Typography>
+          <Typography textAlign={'center'}>{metadatas.cw}</Typography>
+          <Typography textAlign={'center'}>{metadatas.size}</Typography>
+          <Typography textAlign={'center'}>{metadatas.hubbed === 'true' ? 'HUBBED' : 'FORGED'}</Typography>
+          </Box>
+          : ''
         }
       </Box>
       <Box
@@ -96,6 +101,15 @@ export default function Cirl({ metaTags }) {
           <MenuItem value={'ICE'}>ICE</MenuItem>
           <MenuItem value={'SPACE MATTER'}>SPACE MATTER</MenuItem>
           <MenuItem value={'STONE'}>STONE</MenuItem>
+        </Select>
+        <Select
+          label={'state'}
+          id={'state'}
+          value={state}
+          onChange={(event => setState(event.target.value))}
+        >
+          <MenuItem value={false}>ALL</MenuItem>
+          <MenuItem value={true}>HUBBED</MenuItem>
         </Select>
         <LoadingButton
           variant="outlined"
