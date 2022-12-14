@@ -45,6 +45,16 @@ export default function Home({ metaTags }) {
           I wish you a very good tour and hope you will find these resources useful! <br/>
         </Typography>
       </section>
+      <Divider variant={"middle"}>CRYPTOKICKS IRL</Divider>
+      <AppBox>
+        <LinkButton variant={'contained'}>
+          <Link href={'/cirl'}>
+            <Typography variant={'button'} fontWeight={'bold'}>
+              Cirl Finder and Checker
+            </Typography>
+          </Link>
+        </LinkButton>
+      </AppBox>
       <Divider variant={"middle"}>RTFKT'S COLLECTIONS STATS</Divider>
       <AppBox>
         <LinkButton variant={'contained'}>
