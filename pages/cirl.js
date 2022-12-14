@@ -120,7 +120,7 @@ export default function Cirl({ metaTags }) {
         >
           Search
         </LoadingButton>
-        <Typography color={'primary'}>Available supply: {hubbed.length}</Typography>
+        <Typography color={'primary'}>Assets found: {hubbed.length}</Typography>
         {
           hubbed.length ? hubbed.map(pair => <Box
             key={pair.id}
