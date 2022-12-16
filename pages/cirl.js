@@ -63,10 +63,16 @@ export default function Cirl({ metaTags }) {
         </Box>
         {metadatas ?
           <Box>
-          <Typography textAlign={'center'}>{metadatas.id}</Typography>
-          <Typography textAlign={'center'}>{metadatas.cw}</Typography>
-          <Typography textAlign={'center'}>{metadatas.size}</Typography>
-          <Typography textAlign={'center'}>{metadatas.hubbed === true ? 'HUBBED 🔀' : 'FORGED ⚒️'}</Typography>
+            <Button
+              href={`https://opensea.io/fr/assets/ethereum/0x11708dc8a3ea69020f520c81250abb191b190110/${pair.id}`}
+              target={'_blank'}
+              rel={'noopener noreferrer'}
+            >
+              <Typography textAlign={'center'}>{metadatas.id}</Typography>
+            </Button>
+            <Typography textAlign={'center'}>{metadatas.cw}</Typography>
+            <Typography textAlign={'center'}>{metadatas.size}</Typography>
+            <Typography textAlign={'center'}>{metadatas.hubbed === true ? 'HUBBED 🔀' : 'FORGED ⚒️'}</Typography>
           </Box>
           : ''
         }
