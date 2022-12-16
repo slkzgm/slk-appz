@@ -64,7 +64,7 @@ export default function Cirl({ metaTags }) {
         {metadatas ?
           <Box>
             <Button
-              href={`https://opensea.io/fr/assets/ethereum/0x11708dc8a3ea69020f520c81250abb191b190110/${pair.id}`}
+              href={`https://opensea.io/fr/assets/ethereum/0x11708dc8a3ea69020f520c81250abb191b190110/${metadatas.id}`}
               target={'_blank'}
               rel={'noopener noreferrer'}
             >
