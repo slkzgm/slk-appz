@@ -66,7 +66,7 @@ export default function Cirl({ metaTags }) {
           <Typography textAlign={'center'}>{metadatas.id}</Typography>
           <Typography textAlign={'center'}>{metadatas.cw}</Typography>
           <Typography textAlign={'center'}>{metadatas.size}</Typography>
-          <Typography textAlign={'center'}>{metadatas.hubbed === 'true' ? 'HUBBED 🔀' : 'FORGED ⚒️'}</Typography>
+          <Typography textAlign={'center'}>{metadatas.hubbed === true ? 'HUBBED 🔀' : 'FORGED ⚒️'}</Typography>
           </Box>
           : ''
         }
