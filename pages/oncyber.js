@@ -49,13 +49,13 @@ const ArtworksDisplay = ({ artworks }) =>
   <Box>{artworks.map((artwork, index) => <ArtworkDisplay key={index} artwork={artwork} index={index}/>)}</Box>
 
 export default function Oncyber({ metaTags }) {
-  const [spaceId, setSpaceId] = useState("");
+  const [oncyberUrl, setOncyberUrl] = useState("");
   const [artworksList, setArtworksList] = useState([]);
   const [loading, setLoading] = useState(false);
 
   const handleClick = async () => {
     setLoading(true);
-    const assets = await requestOncyberArtworksList(spaceId);
+    const assets = await requestOncyberArtworksList(oncyberUrl);
     setArtworksList(assets);
     setLoading(false);
   }
@@ -74,7 +74,7 @@ export default function Oncyber({ metaTags }) {
           textAlign: 'center'
         }}
       >
-        <TextField id="outlined-basic" label="Oncyber ID" variant="outlined" value={spaceId} onChange={(e) => setSpaceId(e.target.value)}/>
+        <TextField id="outlined-basic" label="Oncyber URL" variant="outlined" value={oncyberUrl} onChange={(e) => setOncyberUrl(e.target.value)}/>
         <LoadingButton
           loading = {loading}
           variant="outlined"
