@@ -4,7 +4,6 @@ import {Box, Button, CardMedia, Divider, Grid, TextField, Typography} from "@mui
 import {requestMetaTagAPI} from "../lib/metaTags";
 import LoadingButton from '@mui/lab/LoadingButton';
 import {requestOncyberArtworksList} from "../lib/oncyber";
-import * as PropTypes from "prop-types";
 
 export async function getServerSideProps(context) {
   const metaTags = await requestMetaTagAPI('oncyber');
@@ -47,7 +46,7 @@ const ArtworkDisplay = ({artwork, index}) =>
   </Grid>
 
 const ArtworksDisplay = ({ artworks }) =>
-  <Box>{artworks.map((artwork, index) => <ArtworkDisplay artwork={artwork} index={index}/>)}</Box>
+  <Box>{artworks.map((artwork, index) => <ArtworkDisplay key={index} artwork={artwork} index={index}/>)}</Box>
 
 export default function Oncyber({ metaTags }) {
   const [spaceId, setSpaceId] = useState("");
