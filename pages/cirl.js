@@ -21,7 +21,7 @@ const CirlBox = ({metadata}) =>
       <Grid item xs={4}>
         <CardMedia
           component={'img'}
-          image={'https://i.seadn.io/gae/kz3L7quLAs_Z07ECoB4s0nI_XC0WLYyGigw8PGQGUmejJaHixJ6UOaALU_k7ura1SpxLLKFId8LiKphH6YdYK5-7Xlk-yEUzKG68Hw'}
+          // image={'https://i.seadn.io/gae/kz3L7quLAs_Z07ECoB4s0nI_XC0WLYyGigw8PGQGUmejJaHixJ6UOaALU_k7ura1SpxLLKFId8LiKphH6YdYK5-7Xlk-yEUzKG68Hw'}
           sx={{height: '100%'}}
         />
       </Grid>
