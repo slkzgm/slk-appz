@@ -1,9 +1,40 @@
 import React, {useState} from 'react';
 import Layout from "../components/Layout";
-import {Box, TextField, Typography, Select, MenuItem, Button} from "@mui/material";
+import {
+  Box,
+  TextField,
+  Typography,
+  Select,
+  MenuItem,
+  Button,
+  Card,
+  CardMedia,
+  CardContent, Grid
+} from "@mui/material";
 import {requestMetaTagAPI} from "../lib/metaTags";
 import LoadingButton from '@mui/lab/LoadingButton';
 import {requestCirlDetails, findCirl} from "../lib/cirl";
+
+const CirlBox = ({metadata}) =>
+  <Card sx={{borderRadius: 0}}>
+    <Grid container>
+      <Grid item xs={4}>
+        <CardMedia
+          component={'img'}
+          // image={'https://i.seadn.io/gae/kz3L7quLAs_Z07ECoB4s0nI_XC0WLYyGigw8PGQGUmejJaHixJ6UOaALU_k7ura1SpxLLKFId8LiKphH6YdYK5-7Xlk-yEUzKG68Hw'}
+          sx={{height: '100%'}}
+        />
+      </Grid>
+      <Grid item xs={6}>
+        <Typography textAlign={'center'}>{metadata.id}</Typography>
+        <Typography textAlign={'center'}>{metadata.cw}</Typography>
+        <Typography textAlign={'center'}>{metadata.size}</Typography>
+      </Grid>
+      <Grid item xs={2}>
+        <Typography textAlign={'center'}>{metadata.hubbed === true ? 'HUBBED 🔀' : 'FORGED ⚒️'}</Typography>
+      </Grid>
+    </Grid>
+  </Card>
 
 export async function getServerSideProps(context) {
   const metaTags = await requestMetaTagAPI('sizecheck');
@@ -18,7 +49,7 @@ export async function getServerSideProps(context) {
 export default function Cirl({ metaTags }) {
   const [cirlId, setCirlId] = useState('');
   const [loading, setLoading] = useState(false);
-  const [metadatas, setMetadatas] = useState('');
+  const [metadata, setMetadata] = useState({});
   const [size, setSize] = useState(8.5);
   const [cw, setCw] = useState('ICE');
   const [state, setState] = useState(false);
@@ -26,7 +57,7 @@ export default function Cirl({ metaTags }) {
 
   const handleMetadataClick = async () => {
     setLoading(true);
-    setMetadatas(await requestCirlDetails(cirlId));
+    setMetadata(await requestCirlDetails(cirlId));
     setLoading(false);
   }
 
@@ -61,20 +92,8 @@ export default function Cirl({ metaTags }) {
             Submit
           </LoadingButton>
         </Box>
-        {metadatas ?
-          <Box sx={{textAlign: 'center'}}>
-            <Button
-              href={`https://opensea.io/fr/assets/ethereum/0x11708dc8a3ea69020f520c81250abb191b190110/${metadatas.id}`}
-              target={'_blank'}
-              rel={'noopener noreferrer'}
-            >
-              <Typography textAlign={'center'}>{metadatas.id}</Typography>
-            </Button>
-            <Typography textAlign={'center'}>{metadatas.cw}</Typography>
-            <Typography textAlign={'center'}>{metadatas.size}</Typography>
-            <Typography textAlign={'center'}>{metadatas.hubbed === true ? 'HUBBED 🔀' : 'FORGED ⚒️'}</Typography>
-          </Box>
-          : ''
+        {metadata ?
+          <CirlBox metadata={metadata}/>: ''
         }
       </Box>
       <Box
