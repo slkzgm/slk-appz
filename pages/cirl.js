@@ -15,13 +15,26 @@ import {requestMetaTagAPI} from "../lib/metaTags";
 import LoadingButton from '@mui/lab/LoadingButton';
 import {requestCirlDetails, findCirl} from "../lib/cirl";
 
+const getPlaceHolder = (cw) => {
+  switch (cw) {
+    case 'STONE':
+      return 'https://i.seadn.io/gcs/files/dfac3ea5fe9df7a672a6a54539bc665d.png?auto=format&w=3840';
+    case 'BLACKOUT':
+      return 'https://i.seadn.io/gcs/files/8255db62f80b05fe0cc38ed62d3bdbc6.png?auto=format&w=3840';
+    case 'ICE':
+      return 'https://i.seadn.io/gcs/files/824fe45ba99a8c53da4b2f8a0063154d.png?auto=format&w=3840';
+    case 'SPACE MATTER':
+      return 'https://i.seadn.io/gcs/files/086e46c2c6290dbb960d26b39a4f9abe.png?auto=format&w=3840';
+  }
+}
+
 const CirlBox = ({metadata}) =>
   <Card sx={{borderRadius: 0}}>
     <Grid container>
       <Grid item xs={4}>
         <CardMedia
           component={'img'}
-          // image={'https://i.seadn.io/gae/kz3L7quLAs_Z07ECoB4s0nI_XC0WLYyGigw8PGQGUmejJaHixJ6UOaALU_k7ura1SpxLLKFId8LiKphH6YdYK5-7Xlk-yEUzKG68Hw'}
+          image={getPlaceHolder(metadata.cw)}
           sx={{height: '100%'}}
         />
       </Grid>
@@ -92,7 +105,7 @@ export default function Cirl({ metaTags }) {
             Submit
           </LoadingButton>
         </Box>
-        {metadata ?
+        {metadata && metadata.id ?
           <CirlBox metadata={metadata}/>: ''
         }
       </Box>
