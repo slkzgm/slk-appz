@@ -16,12 +16,18 @@ export async function getServerSideProps(context) {
 }
 
 const InputParamsDisplay = ({ params }) => <Box>
-  <Typography>account (address)</Typography>
-  <Typography>{params.account}</Typography>
-  <Typography>amount (uint256)</Typography>
-  <Typography>{params.amount}</Typography>
-  <Typography>proof (bytes32[])</Typography>
-  <Typography>{params.proof}</Typography>
+  {params.account ?
+    <Box>
+      <Typography>account (address)</Typography>
+      <Typography>{params.account}</Typography>
+      <Typography>amount (uint256)</Typography>
+      <Typography>{params.amount}</Typography>
+      <Typography>proof (bytes32[])</Typography>
+      <Typography>{params.proof}</Typography>
+    </Box>
+    :
+    ''
+  }
 </Box>
 
 const BlurTutorial = () => <Box sx={{margin: '1rem'}}>
