@@ -6,10 +6,10 @@ import {useRouter} from "next/router";
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
 
-  const shouldDisplayMaintenanceBanner = router.pathname !== '/of';
+  // const shouldDisplayMaintenanceBanner = router.pathname === '/of';
 
   return <>
-    {shouldDisplayMaintenanceBanner && <MaintenanceBanner />}
+    {/*{shouldDisplayMaintenanceBanner && <MaintenanceBanner />}*/}
     <Component {...pageProps} />
     <Analytics />
     </>
