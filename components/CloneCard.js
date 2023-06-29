@@ -14,7 +14,7 @@ import axios from "axios";
 import {LoadingButton} from "@mui/lab";
 import OpenseaIcon from "./OpenseaIcon";
 import LooksrareIcon from "./LooksrareIcon";
-import X2y2Icon from "./x2y2Icon";
+import X2y2Icon from "./X2y2Icon";
 import BlurIcon from "./BlurIcon";
 
 const CloneCard = ({ cloneId, claimed }) => {
