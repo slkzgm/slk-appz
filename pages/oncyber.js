@@ -34,9 +34,9 @@ const ArtworkDisplay = ({artwork, index}) =>
       </Grid>
       <Divider sx={{margin: '1rem'}}/>
       <Grid item xs={12} zeroMinWidth>
-        {Object.keys(artwork).map(field => {
+        {Object.keys(artwork).map((field, index) => {
           if (artwork[field] && field !== 'name' && field !== 'mimeType') {
-            return <a href={artwork[field]} target={'_blank'} rel="noopener noreferrer">
+            return <a href={artwork[field]} target={'_blank'} rel="noopener noreferrer" key={index}>
               <Typography>{field}</Typography>
             </a>
           }
