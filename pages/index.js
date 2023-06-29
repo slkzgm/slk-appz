@@ -62,6 +62,16 @@ export default function Home({ metaTags }) {
           </Link>
         </Button>
       </AppBox>
+      <Divider variant={"middle"}>RTFKT ANIMUS EGGS</Divider>
+      <AppBox>
+        <LinkButton variant={'contained'}>
+          <Link href={'/eggs'}>
+            <Typography variant={'button'} fontWeight={'bold'}>
+              Eggs tools
+            </Typography>
+          </Link>
+        </LinkButton>
+      </AppBox>
       <Divider variant={"middle"}>CLONEX CLAIMS CHECKER</Divider>
       <AppBox>
         <LinkButton variant={'contained'}>

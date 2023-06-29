@@ -1,70 +1,3 @@
-// import {
-//     Card,
-//     CardContent,
-//     CardMedia,
-//     Typography,
-//     List,
-//     ListItem,
-//     Divider,
-//     ListItemText,
-//     Box, ListItemAvatar, Avatar
-// } from "@mui/material";
-//
-// const ClaimListItem = ({ item }) => {
-//     const { image, name, maxMints, remainingMints } = item;
-//
-//     return (
-//         <ListItem>
-//             <ListItemAvatar>
-//                 <Avatar src={image} />
-//             </ListItemAvatar>
-//             <ListItemText primary={name} />
-//             <Box
-//                 sx={{
-//                     display: 'flex',
-//                     justifyContent: 'flex-end',
-//                     alignItems: 'center',
-//                     flex: 1
-//                 }}
-//             >
-//                 <ListItemText primary={`availables: ${remainingMints}`} />
-//                 <ListItemText primary={`max: ${maxMints}`} />
-//             </Box>
-//         </ListItem>
-//     );
-// }
-//
-// function ClaimedDataCard({ claimedData }) {
-//     const { forgeszn1, egg } = claimedData;
-//     console.log(egg);
-//
-//     return (
-//         <Card>
-//             <CardMedia
-//                 component="img"
-//                 height="140"
-//                 image="https://clonex-assets.rtfkt.com/images/4608.png"
-//                 style={{ width: '100%', objectFit: 'cover' }}
-//             />
-//
-//             <CardContent>
-//                 <List>
-//                     <Typography variant="h6">Live</Typography>
-//                     <Typography variant="body2">{egg ? 'Claimed' : 'Available'}</Typography>
-//                     <Divider />
-//
-//                     <Typography variant="h6">Past</Typography>
-//                     {forgeszn1.map((item) => (
-//                         <ClaimListItem key={item.id} item={item}/>
-//                     ))}
-//                 </List>
-//             </CardContent>
-//         </Card>
-//     );
-// }
-//
-// export default ClaimedDataCard;
-
 import {
     Card,
     CardContent,
@@ -76,7 +9,6 @@ import {
     TableContainer,
     TableHead,
     TableRow,
-    Box,
     Avatar
 } from "@mui/material";
 

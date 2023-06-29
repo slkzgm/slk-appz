@@ -12,6 +12,7 @@ import {
 import TwitterIcon from '@mui/icons-material/Twitter';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import React from "react";
+import DiscordIcon from "./DiscordIcon";
 
 export default function Layout({ children, home, metaTags }) {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
@@ -138,6 +139,11 @@ export default function Layout({ children, home, metaTags }) {
           <Link href={"https://www.twitter.com/lstehaye"}>
             <a target={"_blank"}>
               <TwitterIcon/>
+            </a>
+          </Link>
+          <Link href={"https://discord.gg/kqjPbY268H"}>
+            <a target={"_blank"}>
+              <DiscordIcon/>
             </a>
           </Link>
           <Link href={"https://github.com/slkzgm"}>
