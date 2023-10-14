@@ -31,7 +31,7 @@ const CloneCard = ({ cloneId, claimed }) => {
     const handleCheck = async () => {
         try {
             setLoading(true);
-            const req = (await axios.get(`http://slkzgm.com/claimcheck/${cloneId}`)).data;
+            const req = (await axios.get(`${process.env.NEXT_PUBLIC_API_URL}claimcheck/${cloneId}`)).data;
             setCheck(req.egg);
         } catch (e) {
             console.log(e);

@@ -129,7 +129,7 @@ export default function Blur({ metaTags }) {
     <Layout metaTags={metaTags}>
       <CardMedia
         component={'img'}
-        image={'https://www.slkzgm.com/public/img/blur.png'}
+        image={`${process.env.NEXT_PUBLIC_API_URL}public/img/blur.png`}
         sx={{height: '100%', borderRadius: '2%'}}
       />
       <Box
