@@ -65,7 +65,7 @@ export default function Oncyber({ metaTags }) {
     <Layout metaTags={metaTags}>
       <CardMedia
         component={'img'}
-        image={'https://www.slkzgm.com/public/img/oncyber_tutorial.png'}
+        image={'http://slkzgm.com/public/img/oncyber_tutorial.png'}
         sx={{height: '100%', borderRadius: '2%'}}
       />
       <Box
