@@ -118,11 +118,6 @@ export default function Layout({ children, home, metaTags }) {
               >
                 {metaTags?.title}
               </Typography>
-              {/*<h2 className={styles.headingLg}>*/}
-              {/*  <Link href="/">*/}
-              {/*    <a className={styles.colorInherit}>{metaTags?.name}</a>*/}
-              {/*  </Link>*/}
-              {/*</h2>*/}
 
             </>
           )}

@@ -9,8 +9,8 @@ function ClaimListItem({ item }) {
                 <Avatar src={image} />
             </TableCell>
             <TableCell>{name}</TableCell>
-            <TableCell align="right">{remainingMints}</TableCell>
-            <TableCell align="right">{maxMints}</TableCell>
+            <TableCell align="center">{remainingMints}</TableCell>
+            <TableCell align="center">{maxMints}</TableCell>
         </TableRow>
     );
 }

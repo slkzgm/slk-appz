@@ -33,6 +33,7 @@ function DunkCard({ dunkData }) {
                 <Typography
                     variant="h6"
                     marginTop={'2rem'}
+                    color={'green'}
                 >
                     Live
                 </Typography>
@@ -73,6 +74,7 @@ function DunkCard({ dunkData }) {
                 {/*<Typography*/}
                 {/*    variant="h6"*/}
                 {/*    marginTop={'2rem'}*/}
+                {/*    color={'red'}*/}
                 {/*>*/}
                 {/*    Past*/}
                 {/*</Typography>*/}

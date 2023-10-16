@@ -25,7 +25,9 @@ function CloneClaimedDataCard({ cloneId, claimedData }) {
             />
 
             <CardContent>
-                <Typography variant="h6">Live</Typography>
+                <Typography variant="h6"
+                    color={'green'}
+                >Live</Typography>
 
                 <TableContainer>
                     <Table>
@@ -57,6 +59,7 @@ function CloneClaimedDataCard({ cloneId, claimedData }) {
                 <Typography
                     variant="h6"
                     marginTop={'2rem'}
+                    color={'red'}
                 >
                     Past
                 </Typography>
