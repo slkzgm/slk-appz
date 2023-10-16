@@ -9,26 +9,11 @@ import {
     TableContainer,
     TableHead,
     TableRow,
-    Avatar
 } from "@mui/material";
+import ClaimListItem from "./ClaimListItem";
 
-const ClaimListItem = ({ item }) => {
-    const { image, name, maxMints, remainingMints } = item;
-
-    return (
-        <TableRow>
-            <TableCell>
-                <Avatar src={image} />
-            </TableCell>
-            <TableCell>{name}</TableCell>
-            <TableCell align="right">{remainingMints}</TableCell>
-            <TableCell align="right">{maxMints}</TableCell>
-        </TableRow>
-    );
-}
-
-function ClaimedDataCard({ cloneId, claimedData }) {
-    const { forgeszn1, egg } = claimedData;
+function CloneClaimedDataCard({ cloneId, claimedData }) {
+    const { forgeszn1, egg, dunks } = claimedData;
 
     return (
         <Card>
@@ -59,11 +44,22 @@ function ClaimedDataCard({ cloneId, claimedData }) {
                                 remainingMints: egg ? 0 : 1,
                                 image: 'https://i.seadn.io/gcs/files/8abae8ea29458a8b1c275568592fdd95.jpg'
                             }}/>
+                            <ClaimListItem key={'dunks'} item={{
+                                name: 'RTFKT x Nike Dunk Genesis X 👟',
+                                maxMints: '2',
+                                remainingMints: dunks.toString(),
+                                image: '/images/rtfkt-dunk-x.png'
+                            }}/>
                         </TableBody>
                     </Table>
                 </TableContainer>
 
-                <Typography variant="h6">Past</Typography>
+                <Typography
+                    variant="h6"
+                    marginTop={'2rem'}
+                >
+                    Past
+                </Typography>
 
                 <TableContainer>
                     <Table>
@@ -87,4 +83,4 @@ function ClaimedDataCard({ cloneId, claimedData }) {
     );
 }
 
-export default ClaimedDataCard;
+export default CloneClaimedDataCard;

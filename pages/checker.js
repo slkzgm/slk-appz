@@ -4,7 +4,7 @@ import LoadingButton from "@mui/lab/LoadingButton";
 import React, {useState} from "react";
 import Layout from "../components/Layout";
 import {requestClaimCheckDetails} from "../lib/checker";
-import ClaimedDataCard from "../components/ClaimedDataCard";
+import CloneClaimedDataCard from "../components/CloneClaimedDataCard";
 
 export async function getServerSideProps(context) {
     const metaTags = await requestMetaTagAPI('claimcheck');
@@ -21,6 +21,9 @@ export default function Checker({ metaTags }) {
     const [loading, setLoading] = useState(false);
     const [claimedData, setClaimedData] = useState({});
     const [selectedCloneId, setSelectedCloneId] = useState();
+
+    // TODO: Remonve once replaced with correct method
+    claimedData.dunks = 2;
 
     const handleCheckerClick = async () => {
         try {
@@ -60,7 +63,7 @@ export default function Checker({ metaTags }) {
                 </LoadingButton>
             </Box>
             {claimedData && claimedData.forgeszn1 ?
-                <ClaimedDataCard cloneId={selectedCloneId} claimedData={claimedData} /> : ''
+                <CloneClaimedDataCard cloneId={selectedCloneId} claimedData={claimedData} /> : ''
             }
         </Layout>
     )
