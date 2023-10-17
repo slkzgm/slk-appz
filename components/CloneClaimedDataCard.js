@@ -50,7 +50,7 @@ function CloneClaimedDataCard({ cloneId, claimedData }) {
                                 name: 'RTFKT x Nike Dunk Genesis X 👟',
                                 maxMints: '2',
                                 remainingMints: dunks.toString(),
-                                image: '/images/rtfkt-dunk-x.png'
+                                image: 'https://pbs.twimg.com/media/F8p1JlgXQAQWcE9?format=jpg&name=large'
                             }}/>
                         </TableBody>
                     </Table>

@@ -53,19 +53,19 @@ function DunkCard({ dunkData }) {
                                 name: 'RTFKT x Nike Dunk Genesis OG 👟',
                                 maxMints: '1',
                                 remainingMints: claimDetails.og,
-                                image: '/images/rtfkt-dunk-x.png'
+                                image: 'https://pbs.twimg.com/media/F8p1DzEWsAET0lF?format=jpg&name=large'
                             }}/>
                             <ClaimListItem key={'x'} item={{
                                 name: 'RTFKT x Nike Dunk Genesis X 👟',
                                 maxMints: '2',
                                 remainingMints: claimDetails.x,
-                                image: '/images/rtfkt-dunk-x.png'
+                                image: 'https://pbs.twimg.com/media/F8p1JlgXQAQWcE9?format=jpg&name=large'
                             }}/>
                             <ClaimListItem key={'void'} item={{
                                 name: 'RTFKT x Nike Dunk Genesis VOID 👟',
                                 maxMints: '2',
                                 remainingMints: claimDetails.v,
-                                image: '/images/rtfkt-dunk-x.png'
+                                image: 'https://pbs.twimg.com/media/F8p1L7bXcAAUSGy?format=jpg&name=large'
                             }}/>
                         </TableBody>
                     </Table>
