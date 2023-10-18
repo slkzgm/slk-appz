@@ -13,7 +13,7 @@ import {
 import ClaimListItem from "./ClaimListItem";
 
 function CloneClaimedDataCard({ cloneId, claimedData }) {
-    const { forgeszn1, egg, dunks } = claimedData;
+    const { forgeszn1, egg, dunk } = claimedData;
 
     return (
         <Card>
@@ -49,7 +49,7 @@ function CloneClaimedDataCard({ cloneId, claimedData }) {
                             <ClaimListItem key={'dunks'} item={{
                                 name: 'RTFKT x Nike Dunk Genesis X 👟',
                                 maxMints: '2',
-                                remainingMints: dunks.toString(),
+                                remainingMints: dunk.toString(),
                                 image: 'https://pbs.twimg.com/media/F8p1JlgXQAQWcE9?format=jpg&name=large'
                             }}/>
                         </TableBody>
