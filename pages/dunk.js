@@ -1,10 +1,22 @@
 import {requestMetaTagAPI} from "../lib/metaTags";
-import {Box, TextField} from "@mui/material";
+import {
+    Avatar,
+    Box,
+    Button,
+    Table,
+    TableBody,
+    TableCell,
+    TableHead,
+    TableRow,
+    TextField,
+    Typography
+} from "@mui/material";
 import LoadingButton from "@mui/lab/LoadingButton";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import Layout from "../components/Layout";
-import {requestDunkDetails} from "../lib/dunk";
+import {requestDunkDetails, requestDunkForgedSupply} from "../lib/dunk";
 import DunkCard from "../components/DunkCard";
+import ForgedSupplyTable from "../components/DunkForgedSupplyTable";
 
 export async function getServerSideProps(context) {
     const metaTags = await requestMetaTagAPI('dunk');
@@ -20,12 +32,39 @@ export default function DunkChecker({ metaTags }) {
     const [dunkId, setDunkId] = useState('');
     const [loading, setLoading] = useState(false);
     const [dunkData, setDunkData] = useState({});
+    const [forgedSupply, setForgedSupply] = useState({og: 0, x: 0, v: 0});
+
+    useEffect(() => {
+        const fetchDunkForgeDetails = async () => {
+            try {
+                const forgeDetails = await requestDunkForgedSupply();
+                setForgedSupply(forgeDetails);
+            } catch (e) {
+                console.log(e);
+            }
+        };
+
+        fetchDunkForgeDetails();
+    }, []);
+
+    const updateDunkForgeDetails = async () => {
+        try {
+            const forgeDetails = await requestDunkForgedSupply();
+            setForgedSupply(forgeDetails);
+        } catch (e) {
+            console.log(e);
+        }
+    }
 
     const handleCheckerClick = async () => {
         try {
             setLoading(true);
-            setDunkData(await requestDunkDetails(dunkId));
-            console.log(dunkData);
+            const [newDunkData, newSupplyData] = await Promise.all([
+                requestDunkDetails(dunkId),
+                requestDunkForgedSupply()
+            ]);
+            setDunkData(newDunkData);
+            setForgedSupply(newSupplyData)
             setLoading(false);
         } catch (e) {
             console.log(e);
@@ -35,8 +74,10 @@ export default function DunkChecker({ metaTags }) {
 
     return (
         <Layout metaTags={metaTags}>
+            <ForgedSupplyTable forgedSupply={forgedSupply} updateDunkForgeDetails={updateDunkForgeDetails} />
             <Box
                 sx={{
+                    paddingTop: '2rem',
                     margin: '.5rem',
                     textAlign: 'center'
                 }}
