@@ -8,7 +8,7 @@ export default function ForgedSupplyTable({ forgedSupply, updateDunkForgeDetails
                 <TableHead>
                     <TableRow>
                         <TableCell align="center" colSpan={3}>
-                            <Typography variant={'h6'} color={'primary'}>Actual supply minted</Typography>
+                            <Typography variant={'h6'} color={'primary'}>Actual Supply Minted</Typography>
                         </TableCell>
                     </TableRow>
                 </TableHead>
@@ -37,6 +37,13 @@ export default function ForgedSupplyTable({ forgedSupply, updateDunkForgeDetails
                         <TableCell align={"center"}>{forgedSupply.og}</TableCell>
                         <TableCell align={"center"}>{forgedSupply.x}</TableCell>
                         <TableCell align={"center"}>{forgedSupply.v}</TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell align={"center"} colSpan={3}>
+                            <Typography variant={'h6'} color={'primary'}>
+                                Total Forged Supply: {forgedSupply.total}
+                            </Typography>
+                        </TableCell>
                     </TableRow>
                 </TableBody>
             </Table>

@@ -24,7 +24,7 @@ export default function DunkChecker({ metaTags }) {
     const [dunkId, setDunkId] = useState('');
     const [loading, setLoading] = useState(false);
     const [dunkData, setDunkData] = useState({});
-    const [forgedSupply, setForgedSupply] = useState({og: 0, x: 0, v: 0});
+    const [forgedSupply, setForgedSupply] = useState({og: 0, x: 0, v: 0, total: 0});
 
     useEffect(() => {
         const fetchDunkForgeDetails = async () => {
