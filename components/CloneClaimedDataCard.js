@@ -13,7 +13,7 @@ import {
 import ClaimListItem from "./ClaimListItem";
 
 function CloneClaimedDataCard({ cloneId, claimedData }) {
-    const { forgeszn1, egg, dunk } = claimedData;
+    const { forgeszn1, egg, dunk, ghostDunk } = claimedData;
 
     return (
         <Card>
@@ -46,11 +46,11 @@ function CloneClaimedDataCard({ cloneId, claimedData }) {
                                 remainingMints: egg ? 0 : 1,
                                 image: 'https://i.seadn.io/gcs/files/8abae8ea29458a8b1c275568592fdd95.jpg'
                             }}/>
-                            <ClaimListItem key={'dunks'} item={{
-                                name: 'RTFKT x Nike Dunk Genesis X 👟',
+                            <ClaimListItem key={'ghostDunk'} item={{
+                                name: 'RTFKT x Nike Dunk Genesis GHOST 👻',
                                 maxMints: '2',
-                                remainingMints: dunk.toString(),
-                                image: 'https://pbs.twimg.com/media/F8p1JlgXQAQWcE9?format=jpg&name=large'
+                                remainingMints: ghostDunk.toString(),
+                                image: 'https://pbs.twimg.com/media/F-_rYmnakAAR1dv?format=jpg&name=large'
                             }}/>
                         </TableBody>
                     </Table>
@@ -75,6 +75,12 @@ function CloneClaimedDataCard({ cloneId, claimedData }) {
                             </TableRow>
                         </TableHead>
                         <TableBody>
+                            <ClaimListItem key={'dunks'} item={{
+                                name: 'RTFKT x Nike Dunk Genesis X 👟',
+                                maxMints: '2',
+                                remainingMints: dunk.toString(),
+                                image: 'https://pbs.twimg.com/media/F8p1JlgXQAQWcE9?format=jpg&name=large'
+                            }}/>
                             {forgeszn1.map((item) => (
                                 <ClaimListItem key={item.id} item={item}/>
                             ))}

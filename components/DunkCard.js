@@ -35,7 +35,35 @@ function DunkCard({ dunkData }) {
                     marginTop={'2rem'}
                     color={'green'}
                 >
-                    Live
+                  Live
+                </Typography>
+
+                <TableContainer>
+                    <Table>
+                        <TableHead>
+                            <TableRow>
+                                <TableCell></TableCell>
+                                <TableCell>Name</TableCell>
+                                <TableCell align="right">Availables</TableCell>
+                                <TableCell align="right">Max</TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            <ClaimListItem key={'ghost'} item={{
+                                name: 'RTFKT x Nike Dunk Genesis GHOST 👻',
+                                maxMints: '2',
+                                remainingMints: claimDetails.ghost,
+                                image: 'https://pbs.twimg.com/media/F-_rYmnakAAR1dv?format=jpg&name=large'
+                            }}/>
+                        </TableBody>
+                    </Table>
+                </TableContainer>
+                <Typography
+                    variant="h6"
+                    marginTop={'2rem'}
+                    color={'red'}
+                >
+                   Past
                 </Typography>
 
                 <TableContainer>
