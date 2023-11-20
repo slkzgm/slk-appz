@@ -32,11 +32,18 @@ export default function ForgedSupplyTable({ forgedSupply, updateDunkForgeDetails
                                 <Typography marginTop={'1rem'}>VOID</Typography>
                             </div>
                         </TableCell>
+                        <TableCell align={"center"} style={{ verticalAlign: 'middle' }}>
+                            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                                <Avatar src="https://pbs.twimg.com/media/F-_rYmnakAAR1dv?format=jpg&name=large" alt="V Image" style={{ width: 60, height: 60 }}/>
+                                <Typography marginTop={'1rem'}>GHOST</Typography>
+                            </div>
+                        </TableCell>
                     </TableRow>
                     <TableRow>
                         <TableCell align={"center"}>{forgedSupply.og}</TableCell>
                         <TableCell align={"center"}>{forgedSupply.x}</TableCell>
                         <TableCell align={"center"}>{forgedSupply.v}</TableCell>
+                        <TableCell align={"center"}>{forgedSupply.ghost}</TableCell>
                     </TableRow>
                     <TableRow>
                         <TableCell align={"center"} colSpan={3}>
