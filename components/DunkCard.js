@@ -30,12 +30,34 @@ function DunkCard({ dunkData }) {
                     <Typography>SKINVIAL ID: {equippedVial === '0' ? 'NO VIAL' : equippedVial}</Typography>
                     <Typography>DNA: {vialDNA ? vialDNA : 'BLANK'}</Typography>
                 </div>
+                {/*<Typography*/}
+                {/*    variant="h6"*/}
+                {/*    marginTop={'2rem'}*/}
+                {/*    color={'green'}*/}
+                {/*>*/}
+                {/*  Live*/}
+                {/*</Typography>*/}
+                {/*<TableContainer>*/}
+                {/*    <Table>*/}
+                {/*        <TableHead>*/}
+                {/*            <TableRow>*/}
+                {/*                <TableCell></TableCell>*/}
+                {/*                <TableCell>Name</TableCell>*/}
+                {/*                <TableCell align="right">Availables</TableCell>*/}
+                {/*                <TableCell align="right">Max</TableCell>*/}
+                {/*            </TableRow>*/}
+                {/*        </TableHead>*/}
+                {/*        <TableBody>*/}
+                {/*        </TableBody>*/}
+                {/*    </Table>*/}
+                {/*</TableContainer>*/}
+
                 <Typography
                     variant="h6"
                     marginTop={'2rem'}
-                    color={'green'}
+                    color={'red'}
                 >
-                  Live
+                    Past
                 </Typography>
 
                 <TableContainer>
@@ -55,28 +77,6 @@ function DunkCard({ dunkData }) {
                                 remainingMints: claimDetails.ghost,
                                 image: 'https://pbs.twimg.com/media/F-_rYmnakAAR1dv?format=jpg&name=large'
                             }}/>
-                        </TableBody>
-                    </Table>
-                </TableContainer>
-                <Typography
-                    variant="h6"
-                    marginTop={'2rem'}
-                    color={'red'}
-                >
-                   Past
-                </Typography>
-
-                <TableContainer>
-                    <Table>
-                        <TableHead>
-                            <TableRow>
-                                <TableCell></TableCell>
-                                <TableCell>Name</TableCell>
-                                <TableCell align="right">Availables</TableCell>
-                                <TableCell align="right">Max</TableCell>
-                            </TableRow>
-                        </TableHead>
-                        <TableBody>
                             <ClaimListItem key={'og'} item={{
                                 name: 'RTFKT x Nike Dunk Genesis OG 👟',
                                 maxMints: '1',
