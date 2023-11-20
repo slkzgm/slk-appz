@@ -37,6 +37,21 @@ export default function DunkChecker({ metaTags }) {
         };
 
         fetchDunkForgeDetails();
+
+        const eventSource = new EventSource('https://slkzgm.com/ws/dunkForge');
+
+        eventSource.onmessage = e => {
+            const data = JSON.parse(e.data);
+            setForgedSupply(data);
+        }
+
+        eventSource.onerror = e => {
+          console.error('SSE error: ', e);
+        };
+
+        return () => {
+            eventSource.close();
+        }
     }, []);
 
     const updateDunkForgeDetails = async () => {
