@@ -39,14 +39,14 @@ function CloneClaimedDataCard({ cloneId, claimedData }) {
                                 <TableCell align="right">Max</TableCell>
                             </TableRow>
                         </TableHead>
-                        <TableBody>
-                            <ClaimListItem key={'egg'} item={{
-                                name: 'RTFKT Animus Egg 🥚',
-                                maxMints: '1',
-                                remainingMints: egg ? 0 : 1,
-                                image: 'https://i.seadn.io/gcs/files/8abae8ea29458a8b1c275568592fdd95.jpg'
-                            }}/>
-                        </TableBody>
+                        {/*<TableBody>*/}
+                        {/*    <ClaimListItem key={'egg'} item={{*/}
+                        {/*        name: 'RTFKT Animus Egg 🥚',*/}
+                        {/*        maxMints: '1',*/}
+                        {/*        remainingMints: egg ? 0 : 1,*/}
+                        {/*        image: 'https://i.seadn.io/gcs/files/8abae8ea29458a8b1c275568592fdd95.jpg'*/}
+                        {/*    }}/>*/}
+                        {/*</TableBody>*/}
                     </Table>
                 </TableContainer>
 
@@ -69,6 +69,12 @@ function CloneClaimedDataCard({ cloneId, claimedData }) {
                             </TableRow>
                         </TableHead>
                         <TableBody>
+                            <ClaimListItem key={'egg'} item={{
+                                name: 'RTFKT Animus Egg 🥚',
+                                maxMints: '1',
+                                remainingMints: egg ? 0 : 1,
+                                image: 'https://i.seadn.io/gcs/files/8abae8ea29458a8b1c275568592fdd95.jpg'
+                            }}/>
                             <ClaimListItem key={'ghostDunk'} item={{
                                 name: 'RTFKT x Nike Dunk Genesis GHOST 👻',
                                 maxMints: '2',
